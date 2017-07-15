@@ -1,0 +1,28 @@
+<resources>
+	<string name="app_name">Animee</string>
+
+	<string name="navigation_drawer_open">打开导航栏</string>
+	<string name="navigation_drawer_close">关闭导航栏</string>
+
+	<string name="action_settings">设置</string>
+
+	<string name="sunday">日</string>
+	<string name="monday">一</string>
+	<string name="tuesday">二</string>
+	<string name="wednesday">三</string>
+	<string name="thursday">四</string>
+	<string name="friday">五</string>
+	<string name="saturday">六</string>
+
+	<string name="nav_title1">追番</string>
+	<string name="drama">番剧</string>
+	<string name="count">统计</string>
+
+	<string name="nav_title2">选项</string>
+	<string name="setting">设置</string>
+	<string name="feedback">反馈</string>
+	<string name="about">关于</string>
+	
+	<string name="episode">第{0}话</string>
+
+</resources>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="support-v4-24.0.0">
+    <CLASSES>
+      <root url="file://G:/AndroidAVD/.android/build-cache/2cb28b618b87126ed0a0d00e7622825d7714b673/output/res" />
+      <root url="jar://G:/AndroidAVD/.android/build-cache/2cb28b618b87126ed0a0d00e7622825d7714b673/output/jars/classes.jar!/" />
+      <root url="jar://G:/AndroidAVD/.android/build-cache/2cb28b618b87126ed0a0d00e7622825d7714b673/output/jars/libs/internal_impl-24.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/24.0.0/support-v4-24.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:card_view="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+	
+	<android.support.v7.widget.CardView
+		android:id="@+id/animee_list_cardview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="6dp"
+		android:clickable="true"
+		android:foreground="?attr/selectableItemBackground"
+		app:cardBackgroundColor="@color/colorBackground"
+		card_view:cardCornerRadius="@dimen/card_corner_radius"
+		card_view:cardElevation="@dimen/card_elevation">
+		
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:orientation="horizontal">
+			
+			<ImageView
+				android:id="@+id/animee_list_icon"
+				android:layout_width="60dp"
+				android:layout_height="match_parent"
+				android:adjustViewBounds="true"
+				android:scaleType="fitXY"
+				android:src="@drawable/anime_pic"/>
+			
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+				
+				<TextView
+					android:id="@+id/animee_list_name"
+					style="@style/Material_Card_Title"
+					android:text="NEW GAME"
+					android:textColor="@color/colorWhite"/>
+				
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+					
+					<TextView
+						android:id="@+id/animee_list_episode"
+						style="@style/Material_Card_Subtitle_16dp"
+						android:text="第1话"/>
+					
+					<TextView
+						android:id="@+id/animee_list_date"
+						style="@style/Material_Card_Subtitle_16dp"
+						android:text="22:30"/>
+				
+				</LinearLayout>
+			
+			</LinearLayout>
+			
+			<ImageView
+				android:id="@+id/animee_list_copyright"
+				android:layout_width="75dp"
+				android:layout_height="46dp"
+				android:padding="12dp"
+				android:src="@drawable/ic_bilibili"
+				/>
+			
+			<ImageView
+				android:id="@+id/animee_list_state"
+				android:layout_width="48dp"
+				android:layout_height="match_parent"
+				android:clickable="true"
+				android:foreground="?attr/selectableItemBackground"
+				android:padding="12dp"
+				android:src="@drawable/ic_mark"/>
+		
+		</LinearLayout>
+	
+	</android.support.v7.widget.CardView>
+
+</LinearLayout>
+

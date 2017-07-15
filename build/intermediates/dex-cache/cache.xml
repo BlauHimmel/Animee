@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="G:\AndroidAVD\.android\build-cache\9a2c2c927d50af85aa43a82591fb780aa15fa34c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_467029bc95c121d81e37624e26f826d6a00f3de1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\7.0.1\d5d13ea991eab0252e3710e5df3d6a9d4b21d461\butterknife-7.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-7.0.1_e54dcd60c3cd15847d546c108540089145a7bc13\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\AndroidAVD\.android\build-cache\7468e210ad961c0a46c97e7850ecba644c1079a2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8dd49930e4f9dde1a42d37e362b9fea8b1b69c0d">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1345f53e2145640f37b4da830cf5342b163d7192\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_e0a688fd14627c689877e021e48395386f59b0e6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\GitHub\Animee\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c6739ffd78361ab1d02a505755eed6f89ef025f0">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d3f639a6585099189985db10c4593351a2cd3022\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_a3a4b6507ddf09334d4cd1642280aeab034712a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\GitHub\Animee\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_175bf9cef4dcc1dbac58a1ded411b404c7c4c8b1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.2.1\2287494d4f5f9f3a9a2bb6980e3f32053721b315\core-3.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\core-3.2.1_d8086a1716b421aa3d872aa8811673c7fc4027de\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\AndroidAVD\.android\build-cache\f11fc7723102db9498e5175f36d71f1bde68dd5f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="123445a738f283d8272ba858cc4233c090d9e41d">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7cc9eba5584c28cf785dc8ccfd5b8bf39af38c55\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_42f419c7832cca66733613685a735197185dcd38\classes.dex" />
+    </item>
+
+</items>
