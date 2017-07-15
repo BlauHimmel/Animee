@@ -2,7 +2,6 @@ package com.zhouyuming.animee.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.param.CopyrightParams;
 
 import java.text.MessageFormat;
@@ -13,7 +12,7 @@ import java.util.Date;
  * Created by ZhouYuming on 2017/7/9.
  */
 
-public class AnimeListModel {
+public class AnimeListModel extends Model<Integer>{
 
 	@Expose
 	@SerializedName("url")
@@ -38,10 +37,11 @@ public class AnimeListModel {
 	private String updateTime;
 
 	public AnimeListModel() {
-
+		super(0);
 	}
 
 	public AnimeListModel(String iconUrl, String name, long startDate, int week, CopyrightParams copyright) {
+		super(week);
 		this.iconUrl = iconUrl;
 		this.name = name;
 		this.startDate = startDate;

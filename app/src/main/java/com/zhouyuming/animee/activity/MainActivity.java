@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		ButterKnife.bind(this);
 		initialize();
 		createFragments();
-		new FileUtils();
+		FileUtils.init(this);
 	}
 
 

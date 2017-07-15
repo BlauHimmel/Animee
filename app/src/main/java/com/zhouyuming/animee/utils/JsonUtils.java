@@ -8,8 +8,8 @@ public class JsonUtils {
 
 	private static Gson mGson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
-	public static String getJson(AnimeListModel model) {
-		return  mGson.toJson(model);
+	public static <T> String getJson(T model) {
+		return mGson.toJson(model);
 	}
 
 	public static <T> T getModel(String json, Class<T> classOfT) {
