@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.zhouyuming.animee.adapter.AnimeListRecyclerViewAdapter;
 import com.zhouyuming.animee.event.QRCodeEvent;
 import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.param.BundleParams;
+import com.zhouyuming.animee.utils.FileUtils;
 import com.zhouyuming.animee.utils.JsonUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -58,36 +60,32 @@ public class AnimeFragment extends Fragment {
 
 	@Subscribe
 	public void onQRCodeScanned(QRCodeEvent qrCodeEvent) {
+		Log.i("info", "AnimeFragment[" + mWeek + "]:" + qrCodeEvent.getContent());
 		AnimeModel model = JsonUtils.getModel(qrCodeEvent.getContent(), AnimeModel.class);
-		if (model.getWeek() == mWeek) {
-			mAnimeListRecyclerViewAdapter.addAnimeModel(model);
+		Log.i("info", "AnimeModel:" + model);
+		if (model.getWeek() != mWeek) {
+			return;
+		}
+		boolean isUpdated = FileUtils.updateFile(model);
+		Log.i("info", "isUpdated:" + isUpdated);
+		if (isUpdated) {
+			List<AnimeModel> animeModels = FileUtils.readFiles(mWeek);
+			Log.i("info", "animeModels:" + animeModels.size());
+			mAnimeListRecyclerViewAdapter.loadAnimeModel(animeModels);
 		}
 	}
 
 	private void initialize() {
 		mWeek = getArguments().getInt(BundleParams.INT_WEEK.getValue());
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-		mAnimeListRecyclerViewAdapter = new AnimeListRecyclerViewAdapter(getContext(), getAnimeDatas());
+		mAnimeListRecyclerViewAdapter = new AnimeListRecyclerViewAdapter(getContext(), getAnimeModels());
 		mRecyclerView.setLayoutManager(linearLayoutManager);
 		mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 		mRecyclerView.setAdapter(mAnimeListRecyclerViewAdapter);
 	}
 
-	private List<AnimeModel> getAnimeDatas() {
-		List<AnimeModel> animeDatas = new ArrayList<>();
+	private List<AnimeModel> getAnimeModels() {
 		int week = getArguments().getInt(BundleParams.INT_WEEK.getValue());
-		//Load data here
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		animeDatas.add(new AnimeModel());
-		return animeDatas;
+		return FileUtils.readFiles(week);
 	}
 }

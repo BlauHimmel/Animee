@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.model.AnimeModel;
 
@@ -26,10 +27,15 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 	private LayoutInflater mLayoutInflater;
 	private Context mContext;
 
-	public AnimeListRecyclerViewAdapter(Context context, List<AnimeModel> animeDatas) {
+	public AnimeListRecyclerViewAdapter(Context context, List<AnimeModel> animeModels) {
 		mContext = context;
-		mAnimeModels = animeDatas;
+		mAnimeModels = animeModels;
 		mLayoutInflater = LayoutInflater.from(context);
+	}
+
+	public void loadAnimeModel(List<AnimeModel> animeModels) {
+		mAnimeModels = animeModels;
+		notifyDataSetChanged();
 	}
 
 	public void addAnimeModel(AnimeModel model) {
@@ -82,11 +88,11 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 		}
 
 		void updateUI(AnimeModel animeData) {
-			/*Picasso.with(mContext).load(animeData.getIconUrl()).into(mIconIv);
+			Picasso.with(mContext).load(animeData.getIconUrl()).into(mIconIv);
 			Picasso.with(mContext).load(animeData.getCopyright().getResId()).into(mCopyrightIv);
 			mNameTv.setText(animeData.getName());
 			mEpisodeTv.setText(animeData.getEpisode());
-			mDateTv.setText(animeData.getUpdateTime());*/
+			mDateTv.setText(animeData.getUpdateTime());
 		}
 	}
 }

@@ -1,5 +1,7 @@
 package com.zhouyuming.animee.event;
 
+import com.zhouyuming.animee.model.Model;
+
 /**
  * Created by ZhouYuming on 2017/7/15.
  */

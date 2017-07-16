@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,10 +20,16 @@ import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.adapter.AnimeViewPagerAdapter;
 import com.zhouyuming.animee.event.QRCodeEvent;
 import com.zhouyuming.animee.fragment.AnimeFragment;
+import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.param.BundleParams;
+import com.zhouyuming.animee.param.CopyrightParams;
 import com.zhouyuming.animee.utils.FileUtils;
+import com.zhouyuming.animee.utils.JsonUtils;
+
+import junit.framework.Test;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -60,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		createFragments();
 		FileUtils.init(this);
 	}
-
 
 	@Override
 	public void onBackPressed() {
@@ -116,8 +122,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		}
 	}
 
+	@Subscribe
+	public void onQRCodeScanned(QRCodeEvent qrCodeEvent) {
+		Log.i("info", "MainActivity:" + qrCodeEvent.getContent());
+		AnimeModel model = JsonUtils.getModel(qrCodeEvent.getContent(), AnimeModel.class);
+		int week = model.getWeek();
+		mAnimePager.setCurrentItem(week % 7);
+	}
+
 	@OnClick(R.id.activity_main_fab_add)
-	public void OnAddAnimeFabClick() {
+	public void onAddAnimeFabClick() {
 		Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
 		startActivityForResult(intent, REQUEST_QR_CODE);
 	}
@@ -132,6 +146,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 				R.string.navigation_drawer_close);
 		mDrawerLayout.addDrawerListener(toggle);
 		toggle.syncState();
+
+		mAnimePager.setOffscreenPageLimit(6);
 
 		mNavigationView.setNavigationItemSelectedListener(this);
 	}

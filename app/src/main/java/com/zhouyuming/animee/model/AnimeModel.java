@@ -12,7 +12,7 @@ import java.util.Date;
  * Created by ZhouYuming on 2017/7/9.
  */
 
-public class AnimeModel extends Model{
+public class AnimeModel implements Model{
 
 	@Expose
 	@SerializedName("url")
@@ -37,19 +37,16 @@ public class AnimeModel extends Model{
 	private CopyrightParams copyright;
 
 	public AnimeModel() {
-		super();
+
 	}
 
 	public AnimeModel(String iconUrl, String name, String startDate, int week, CopyrightParams copyright) {
-		super();
 		this.iconUrl = iconUrl;
 		this.name = name;
 		this.startDate = startDate;
 		this.week = week;
 		this.copyright = copyright;
 		this.updateTime = startDate.substring(8, 10) + ":" + startDate.substring(10);
-		this.primaryKey1 = week;
-		this.primaryKey2 = Integer.parseInt(updateTime.replace(":", ""));
 	}
 
 	public int getEpisode() {
@@ -105,5 +102,27 @@ public class AnimeModel extends Model{
 
 	public void setCopyright(CopyrightParams copyright) {
 		this.copyright = copyright;
+	}
+
+	@Override
+	public int getPrimaryKey1() {
+		return week;
+	}
+
+	@Override
+	public int getPrimaryKey2() {
+		return Integer.parseInt(updateTime.replace(":", ""));
+	}
+
+	@Override
+	public String toString() {
+		return "AnimeModel{" +
+				"iconUrl='" + iconUrl + '\'' +
+				", name='" + name + '\'' +
+				", startDate='" + startDate + '\'' +
+				", updateTime='" + updateTime + '\'' +
+				", week=" + week +
+				", copyright=" + copyright +
+				'}';
 	}
 }
