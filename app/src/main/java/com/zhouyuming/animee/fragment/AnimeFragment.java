@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.adapter.AnimeListRecyclerViewAdapter;
 import com.zhouyuming.animee.event.QRCodeEvent;
-import com.zhouyuming.animee.model.AnimeListModel;
+import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.param.BundleParams;
 import com.zhouyuming.animee.utils.JsonUtils;
 
@@ -58,7 +58,7 @@ public class AnimeFragment extends Fragment {
 
 	@Subscribe
 	public void onQRCodeScanned(QRCodeEvent qrCodeEvent) {
-		AnimeListModel model = JsonUtils.getModel(qrCodeEvent.getContent(), AnimeListModel.class);
+		AnimeModel model = JsonUtils.getModel(qrCodeEvent.getContent(), AnimeModel.class);
 		if (model.getWeek() == mWeek) {
 			mAnimeListRecyclerViewAdapter.addAnimeModel(model);
 		}
@@ -73,21 +73,21 @@ public class AnimeFragment extends Fragment {
 		mRecyclerView.setAdapter(mAnimeListRecyclerViewAdapter);
 	}
 
-	private List<AnimeListModel> getAnimeDatas() {
-		List<AnimeListModel> animeDatas = new ArrayList<>();
+	private List<AnimeModel> getAnimeDatas() {
+		List<AnimeModel> animeDatas = new ArrayList<>();
 		int week = getArguments().getInt(BundleParams.INT_WEEK.getValue());
 		//Load data here
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
-		animeDatas.add(new AnimeListModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
+		animeDatas.add(new AnimeModel());
 		return animeDatas;
 	}
 }

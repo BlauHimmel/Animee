@@ -9,9 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
 import com.zhouyuming.animee.R;
-import com.zhouyuming.animee.model.AnimeListModel;
+import com.zhouyuming.animee.model.AnimeModel;
 
 import java.util.List;
 
@@ -23,17 +22,17 @@ import butterknife.Bind;
 
 public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeListRecyclerViewAdapter.AnimeListViewHolder> {
 
-	private List<AnimeListModel> mAnimeModels;
+	private List<AnimeModel> mAnimeModels;
 	private LayoutInflater mLayoutInflater;
 	private Context mContext;
 
-	public AnimeListRecyclerViewAdapter(Context context, List<AnimeListModel> animeDatas) {
+	public AnimeListRecyclerViewAdapter(Context context, List<AnimeModel> animeDatas) {
 		mContext = context;
 		mAnimeModels = animeDatas;
 		mLayoutInflater = LayoutInflater.from(context);
 	}
 
-	public void addAnimeModel(AnimeListModel model) {
+	public void addAnimeModel(AnimeModel model) {
 		mAnimeModels.add(model);
 		notifyItemInserted(mAnimeModels.size() - 1);
 	}
@@ -46,7 +45,7 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 
 	@Override
 	public void onBindViewHolder(AnimeListViewHolder holder, int position) {
-		AnimeListModel data = mAnimeModels.get(position);
+		AnimeModel data = mAnimeModels.get(position);
 		holder.updateUI(data);
 	}
 
@@ -82,7 +81,7 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 			super(itemView);
 		}
 
-		void updateUI(AnimeListModel animeData) {
+		void updateUI(AnimeModel animeData) {
 			/*Picasso.with(mContext).load(animeData.getIconUrl()).into(mIconIv);
 			Picasso.with(mContext).load(animeData.getCopyright().getResId()).into(mCopyrightIv);
 			mNameTv.setText(animeData.getName());
