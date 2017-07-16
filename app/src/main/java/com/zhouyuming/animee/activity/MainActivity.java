@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		initialize();
 		createFragments();
 		FileUtils.init(this);
+		FileUtils.clear();
 	}
 
 	@Override

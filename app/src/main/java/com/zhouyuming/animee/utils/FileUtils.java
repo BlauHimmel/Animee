@@ -1,11 +1,11 @@
 package com.zhouyuming.animee.utils;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.SparseArray;
 
 import com.zhouyuming.animee.model.Model;
-import com.zhouyuming.animee.model.ModelArray;
 import com.zhouyuming.animee.param.UpdateParams;
 
 import java.io.File;
@@ -40,9 +40,20 @@ public class FileUtils {
 		}
 	}
 
+	public static void clear() {
+		try {
+			for (int i = 0; i < 7; i++) {
+				mAnimeeFiles[i].delete();
+				mAnimeeFiles[i].createNewFile();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static <T extends Model> boolean updateFile(T model) {
 
-		if (model == null) {
+		if (!mIsInitialized || model == null) {
 			return false;
 		}
 
@@ -52,8 +63,7 @@ public class FileUtils {
 			List<T> models = readFiles(week);
 			models.add(model);
 			Collections.sort(models, (model1, model2) -> model1.getPrimaryKey2() - model2.getPrimaryKey2());
-			ModelArray<T> modelArray = new ModelArray<>(models);
-			String json = JsonUtils.getJson(modelArray);
+			String json = JsonUtils.getJson(models);
 			fos.write(json.getBytes());
 			fos.close();
 		} catch (IOException e) {
@@ -94,8 +104,7 @@ public class FileUtils {
 				FileOutputStream fos = new FileOutputStream(mAnimeeFiles[i]);
 				Collections.sort(weeks.get(i), (model1, model2) -> model1.getPrimaryKey2() - model2.getPrimaryKey2());
 				List<T> sortedModels = weeks.get(i);
-				ModelArray<T> modelArray = new ModelArray<>(sortedModels);
-				String json = JsonUtils.getJson(modelArray);
+				String json = JsonUtils.getJson(sortedModels);
 				fos.write(json.getBytes());
 				fos.close();
 			}
@@ -123,8 +132,7 @@ public class FileUtils {
 				FileOutputStream fos = new FileOutputStream(mAnimeeFiles[i]);
 				Collections.sort(weeks.get(i), (model1, model2) -> model1.getPrimaryKey2() - model2.getPrimaryKey2());
 				List<T> sortedModels = weeks.get(i);
-				ModelArray<T> modelArray = new ModelArray<>(sortedModels);
-				String json = JsonUtils.getJson(modelArray);
+				String json = JsonUtils.getJson(sortedModels);
 				fos.write(json.getBytes());
 				fos.close();
 			}
@@ -135,6 +143,7 @@ public class FileUtils {
 		return true;
 	}
 
+	@NonNull
 	public static <T extends Model> SparseArray<List<T>> readFiles() {
 
 		SparseArray<List<T>> weeks = new SparseArray<>();
@@ -166,6 +175,7 @@ public class FileUtils {
 		return weeks;
 	}
 
+	@NonNull
 	public static <T extends Model> List<T> readFiles(int week) {
 
 		List<T> day = new ArrayList<>();

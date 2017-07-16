@@ -63,7 +63,7 @@ public class AnimeFragment extends Fragment {
 		Log.i("info", "AnimeFragment[" + mWeek + "]:" + qrCodeEvent.getContent());
 		AnimeModel model = JsonUtils.getModel(qrCodeEvent.getContent(), AnimeModel.class);
 		Log.i("info", "AnimeModel:" + model);
-		if (model.getWeek() != mWeek) {
+		if (model == null || model.getWeek() != mWeek) {
 			return;
 		}
 		boolean isUpdated = FileUtils.updateFile(model);
@@ -78,6 +78,7 @@ public class AnimeFragment extends Fragment {
 	private void initialize() {
 		mWeek = getArguments().getInt(BundleParams.INT_WEEK.getValue());
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+		List<AnimeModel> l = getAnimeModels();
 		mAnimeListRecyclerViewAdapter = new AnimeListRecyclerViewAdapter(getContext(), getAnimeModels());
 		mRecyclerView.setLayoutManager(linearLayoutManager);
 		mRecyclerView.setItemAnimator(new DefaultItemAnimator());

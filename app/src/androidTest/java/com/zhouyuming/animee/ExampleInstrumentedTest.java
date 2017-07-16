@@ -5,18 +5,11 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.zhouyuming.animee.model.AnimeModel;
-import com.zhouyuming.animee.model.Model;
-import com.zhouyuming.animee.model.ModelArray;
 import com.zhouyuming.animee.utils.FileUtils;
 import com.zhouyuming.animee.utils.JsonUtils;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Instrumentation test, which will execute on an Android device.
