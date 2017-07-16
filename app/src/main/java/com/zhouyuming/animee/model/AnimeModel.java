@@ -6,7 +6,6 @@ import com.zhouyuming.animee.param.CopyrightParams;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by ZhouYuming on 2017/7/9.
@@ -26,8 +25,6 @@ public class AnimeModel implements Model{
 	@SerializedName("date")
 	private String startDate;	//201707150230->2017-07-15 02:30
 
-	private String updateTime;  //02:30
-
 	@Expose
 	@SerializedName("week")
 	private int week;
@@ -36,17 +33,21 @@ public class AnimeModel implements Model{
 	@SerializedName("copyright")
 	private CopyrightParams copyright;
 
+	@Expose
+	@SerializedName("total")
+	private int total;
+
 	public AnimeModel() {
 
 	}
 
-	public AnimeModel(String iconUrl, String name, String startDate, int week, CopyrightParams copyright) {
+	public AnimeModel(String iconUrl, String name, String startDate, int week, CopyrightParams copyright, int total) {
 		this.iconUrl = iconUrl;
 		this.name = name;
 		this.startDate = startDate;
 		this.week = week;
 		this.copyright = copyright;
-		this.updateTime = startDate.substring(8, 10) + ":" + startDate.substring(10);
+		this.total = total;
 	}
 
 	public int getEpisode() {
@@ -57,11 +58,12 @@ public class AnimeModel implements Model{
 			e.printStackTrace();
 		}
 		int day = (int) (System.currentTimeMillis() - startTime) / (1000 * 3600 * 24);
-		return day / 7 + 1;
+		int episode = day / 7 + 1;
+		return episode <= total ? episode : total;
 	}
 
 	public String getUpdateTime() {
-		return updateTime;
+		return startDate.substring(8, 10) + ":" + startDate.substring(10);
 	}
 
 	public String getIconUrl() {
@@ -104,6 +106,14 @@ public class AnimeModel implements Model{
 		this.copyright = copyright;
 	}
 
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
 	@Override
 	public int getPrimaryKey1() {
 		return week;
@@ -111,7 +121,19 @@ public class AnimeModel implements Model{
 
 	@Override
 	public int getPrimaryKey2() {
-		return Integer.parseInt(updateTime.replace(":", ""));
+		return Integer.parseInt(startDate.substring(8));
+	}
+
+	public boolean isFin() {
+		long startTime = System.currentTimeMillis();
+		try {
+			startTime = new SimpleDateFormat("yyyyMMddHHmm").parse(startDate).getTime();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		int day = (int) (System.currentTimeMillis() - startTime) / (1000 * 3600 * 24);
+		int episode = day / 7 + 1;
+		return episode > total;
 	}
 
 	@Override
@@ -120,9 +142,38 @@ public class AnimeModel implements Model{
 				"iconUrl='" + iconUrl + '\'' +
 				", name='" + name + '\'' +
 				", startDate='" + startDate + '\'' +
-				", updateTime='" + updateTime + '\'' +
+				", updateTime='" + getUpdateTime() + '\'' +
 				", week=" + week +
 				", copyright=" + copyright +
+				", total=" + total +
 				'}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		AnimeModel model = (AnimeModel) o;
+
+		if (week != model.week) return false;
+		if (total != model.total) return false;
+		if (iconUrl != null ? !iconUrl.equals(model.iconUrl) : model.iconUrl != null) return false;
+		if (name != null ? !name.equals(model.name) : model.name != null) return false;
+		if (startDate != null ? !startDate.equals(model.startDate) : model.startDate != null)
+			return false;
+		return copyright == model.copyright;
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = iconUrl != null ? iconUrl.hashCode() : 0;
+		result = 31 * result + (name != null ? name.hashCode() : 0);
+		result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
+		result = 31 * result + week;
+		result = 31 * result + (copyright != null ? copyright.hashCode() : 0);
+		result = 31 * result + total;
+		return result;
 	}
 }

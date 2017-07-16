@@ -29,8 +29,7 @@
 				android:layout_width="60dp"
 				android:layout_height="match_parent"
 				android:adjustViewBounds="true"
-				android:scaleType="fitXY"
-				android:src="@drawable/anime_pic"/>
+				android:scaleType="fitXY"/>
 			
 			<LinearLayout
 				android:layout_width="0dp"
@@ -41,7 +40,6 @@
 				<TextView
 					android:id="@+id/animee_list_name"
 					style="@style/Material_Card_Title"
-					android:text="NEW GAME"
 					android:textColor="@color/colorWhite"/>
 				
 				<LinearLayout
@@ -51,13 +49,11 @@
 					
 					<TextView
 						android:id="@+id/animee_list_episode"
-						style="@style/Material_Card_Subtitle_16dp"
-						android:text="第1话"/>
+						style="@style/Material_Card_Subtitle_16dp"/>
 					
 					<TextView
 						android:id="@+id/animee_list_date"
-						style="@style/Material_Card_Subtitle_16dp"
-						android:text="22:30"/>
+						style="@style/Material_Card_Subtitle_16dp"/>
 				
 				</LinearLayout>
 			
@@ -67,8 +63,7 @@
 				android:id="@+id/animee_list_copyright"
 				android:layout_width="75dp"
 				android:layout_height="46dp"
-				android:padding="12dp"
-				android:src="@drawable/ic_bilibili"
+				android:padding="2dp"
 				/>
 			
 			<ImageView
@@ -76,9 +71,8 @@
 				android:layout_width="48dp"
 				android:layout_height="match_parent"
 				android:clickable="true"
-				android:foreground="?attr/selectableItemBackground"
-				android:padding="12dp"
-				android:src="@drawable/ic_mark"/>
+				android:foreground="?attr/selectableItemBackgroundBorderless"
+				android:padding="12dp"/>
 		
 		</LinearLayout>
 	

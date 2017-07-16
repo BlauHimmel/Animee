@@ -2,9 +2,13 @@ package com.zhouyuming.animee.utils;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.zhouyuming.animee.model.Model;
 
@@ -31,8 +35,15 @@ public class JsonUtils {
 	}
 
 	@NonNull
-	public static <T extends Model> List<T> getModelArray(@NonNull String json) {
-		List<T> models = mGson.fromJson(json, new TypeToken<List<T>>(){}.getType());
-		return models == null ? new ArrayList<>() : models;
+	public static <T extends Model> List<T> getModelArray(@NonNull String json, @NonNull Class<T> classOfModel) {
+		List<T> models = new ArrayList<>();
+		if (json.equals("")) {
+			return models;
+		}
+		JsonArray array = new JsonParser().parse(json).getAsJsonArray();
+		for (JsonElement element : array) {
+			models.add(new Gson().fromJson(element, classOfModel));
+		}
+		return models;
 	}
 }

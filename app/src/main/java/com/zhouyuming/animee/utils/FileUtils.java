@@ -2,7 +2,6 @@ package com.zhouyuming.animee.utils;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.util.SparseArray;
 
 import com.zhouyuming.animee.model.Model;
@@ -51,7 +50,7 @@ public class FileUtils {
 		}
 	}
 
-	public static <T extends Model> boolean updateFile(T model) {
+	public static <T extends Model> boolean updateFile(T model, Class<T> classOfModel) {
 
 		if (!mIsInitialized || model == null) {
 			return false;
@@ -59,13 +58,18 @@ public class FileUtils {
 
 		try {
 			int week = model.getPrimaryKey1();
-			FileOutputStream fos = new FileOutputStream(mAnimeeFiles[week - 1]);
-			List<T> models = readFiles(week);
-			models.add(model);
-			Collections.sort(models, (model1, model2) -> model1.getPrimaryKey2() - model2.getPrimaryKey2());
-			String json = JsonUtils.getJson(models);
-			fos.write(json.getBytes());
-			fos.close();
+			List<T> models = readFiles(week, classOfModel);
+
+			if (!models.contains(model)) {
+				models.add(model);
+				Collections.sort(models, (model1, model2) -> model1.getPrimaryKey2() - model2.getPrimaryKey2());
+				String json = JsonUtils.getJson(models);
+				FileOutputStream fos = new FileOutputStream(mAnimeeFiles[week - 1]);
+				fos.write(json.getBytes());
+				fos.close();
+			} else {
+				return false;
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -73,12 +77,12 @@ public class FileUtils {
 		return true;
 	}
 
-	public static <T extends Model> boolean updateFiles(List<T> models, UpdateParams updateParams) {
+	public static <T extends Model> boolean updateFiles(List<T> models, Class<T> classOfModel, UpdateParams updateParams) {
 
 		if (updateParams == UpdateParams.OVERRIDE) {
 			return updateFilesOverride(models);
 		} else if (updateParams == UpdateParams.MODIFY) {
-			return updateFilesModify(models);
+			return updateFilesModify(models, classOfModel);
 		} else {
 			return false;
 		}
@@ -115,16 +119,26 @@ public class FileUtils {
 		return true;
 	}
 
-	private static <T extends Model> boolean updateFilesModify(List<T> models) {
+	private static <T extends Model> boolean updateFilesModify(List<T> models, Class<T> classOfModel) {
 
 		if (!mIsInitialized || models == null || models.size() == 0) {
 			return false;
 		}
 
-		SparseArray<List<T>> weeks = readFiles();
+		SparseArray<List<T>> weeks = readFiles(classOfModel);
+
+		boolean isUpdated = false;
 
 		for (T model : models) {
-			weeks.get(model.getPrimaryKey1()).add(model);
+			List<T> week = weeks.get(model.getPrimaryKey1());
+			if (!week.contains(model)) {
+				week.add(model);
+				isUpdated = true;
+			}
+		}
+
+		if (!isUpdated) {
+			return false;
 		}
 
 		try {
@@ -144,7 +158,7 @@ public class FileUtils {
 	}
 
 	@NonNull
-	public static <T extends Model> SparseArray<List<T>> readFiles() {
+	public static <T extends Model> SparseArray<List<T>> readFiles(Class<T> classOfModel) {
 
 		SparseArray<List<T>> weeks = new SparseArray<>();
 		for (int i = 0; i < 7; i++) {
@@ -164,7 +178,7 @@ public class FileUtils {
 				while ((length = fis.read(buffer)) != -1) {
 					sb.append(new String(buffer, 0, length));
 				}
-				List<T> models = JsonUtils.getModelArray(sb.toString());
+				List<T> models = JsonUtils.getModelArray(sb.toString(), classOfModel);
 				weeks.put(i, models);
 				fis.close();
 			}
@@ -176,7 +190,7 @@ public class FileUtils {
 	}
 
 	@NonNull
-	public static <T extends Model> List<T> readFiles(int week) {
+	public static <T extends Model> List<T> readFiles(int week, Class<T> classOfModel) {
 
 		List<T> day = new ArrayList<>();
 
@@ -192,8 +206,7 @@ public class FileUtils {
 			while ((length = fis.read(buffer)) != -1) {
 				sb.append(new String(buffer, 0, length));
 			}
-			Log.i("info", "FileUtils:" + sb.toString());
-			day = JsonUtils.getModelArray(sb.toString());
+			day = JsonUtils.getModelArray(sb.toString(), classOfModel);
 			fis.close();
 		} catch (IOException e) {
 			e.printStackTrace();

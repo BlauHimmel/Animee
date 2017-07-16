@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.adapter.AnimeListRecyclerViewAdapter;
+import com.zhouyuming.animee.event.AnimeUpdateEvent;
 import com.zhouyuming.animee.event.QRCodeEvent;
 import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.param.BundleParams;
@@ -22,7 +23,6 @@ import com.zhouyuming.animee.utils.JsonUtils;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -60,25 +60,23 @@ public class AnimeFragment extends Fragment {
 
 	@Subscribe
 	public void onQRCodeScanned(QRCodeEvent qrCodeEvent) {
-		Log.i("info", "AnimeFragment[" + mWeek + "]:" + qrCodeEvent.getContent());
 		AnimeModel model = JsonUtils.getModel(qrCodeEvent.getContent(), AnimeModel.class);
-		Log.i("info", "AnimeModel:" + model);
 		if (model == null || model.getWeek() != mWeek) {
 			return;
 		}
-		boolean isUpdated = FileUtils.updateFile(model);
-		Log.i("info", "isUpdated:" + isUpdated);
+		boolean isUpdated = FileUtils.updateFile(model, AnimeModel.class);
 		if (isUpdated) {
-			List<AnimeModel> animeModels = FileUtils.readFiles(mWeek);
-			Log.i("info", "animeModels:" + animeModels.size());
+			List<AnimeModel> animeModels = FileUtils.readFiles(mWeek, AnimeModel.class);
 			mAnimeListRecyclerViewAdapter.loadAnimeModel(animeModels);
+			EventBus.getDefault().post(new AnimeUpdateEvent(model.getWeek(), true));
+		} else {
+			EventBus.getDefault().post(new AnimeUpdateEvent(model.getWeek(), false));
 		}
 	}
 
 	private void initialize() {
 		mWeek = getArguments().getInt(BundleParams.INT_WEEK.getValue());
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-		List<AnimeModel> l = getAnimeModels();
 		mAnimeListRecyclerViewAdapter = new AnimeListRecyclerViewAdapter(getContext(), getAnimeModels());
 		mRecyclerView.setLayoutManager(linearLayoutManager);
 		mRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -87,6 +85,6 @@ public class AnimeFragment extends Fragment {
 
 	private List<AnimeModel> getAnimeModels() {
 		int week = getArguments().getInt(BundleParams.INT_WEEK.getValue());
-		return FileUtils.readFiles(week);
+		return FileUtils.readFiles(week, AnimeModel.class);
 	}
 }

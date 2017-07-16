@@ -3,7 +3,9 @@ package com.zhouyuming.animee.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.NavigationView;
@@ -12,21 +14,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.adapter.AnimeViewPagerAdapter;
+import com.zhouyuming.animee.event.AnimeUpdateEvent;
 import com.zhouyuming.animee.event.QRCodeEvent;
 import com.zhouyuming.animee.fragment.AnimeFragment;
 import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.param.BundleParams;
-import com.zhouyuming.animee.param.CopyrightParams;
 import com.zhouyuming.animee.utils.FileUtils;
 import com.zhouyuming.animee.utils.JsonUtils;
-
-import junit.framework.Test;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -37,6 +36,9 @@ import butterknife.OnClick;
 import io.github.xudaojie.qrcodelib.CaptureActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+	@Bind(R.id.activity_main_coordinator_layout)
+	CoordinatorLayout mCoordinatorLayout;
 
 	@Bind(R.id.activity_main_fab_add)
 	FloatingActionButton mFabAddAnime;
@@ -62,11 +64,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		EventBus.getDefault().register(this);
 		ButterKnife.bind(this);
 		initialize();
 		createFragments();
 		FileUtils.init(this);
-		FileUtils.clear();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		EventBus.getDefault().unregister(this);
 	}
 
 	@Override
@@ -124,11 +132,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 	}
 
 	@Subscribe
-	public void onQRCodeScanned(QRCodeEvent qrCodeEvent) {
-		Log.i("info", "MainActivity:" + qrCodeEvent.getContent());
-		AnimeModel model = JsonUtils.getModel(qrCodeEvent.getContent(), AnimeModel.class);
-		int week = model.getWeek();
+	public void onQRCodeScanned(AnimeUpdateEvent animeUpdateEvent) {
+		int week = animeUpdateEvent.getWeek();
 		mAnimePager.setCurrentItem(week % 7);
+		if (animeUpdateEvent.isUpdated()) {
+			Snackbar.make(mCoordinatorLayout, getString(R.string.add_success), Snackbar.LENGTH_SHORT).show();
+		} else {
+			Snackbar.make(mCoordinatorLayout, getString(R.string.add_fail), Snackbar.LENGTH_SHORT).show();
+		}
 	}
 
 	@OnClick(R.id.activity_main_fab_add)

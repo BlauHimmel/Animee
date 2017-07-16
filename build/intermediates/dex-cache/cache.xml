@@ -119,6 +119,15 @@
         <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\debug\classes_1765706719b4cf45d591419c8963ebe941d2b8e9.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.0.1\b34c1f2d993044656e87f88970b6818e99e886ba\okhttp-3.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.0.1_97fc54b0ed2698faaf81936e0a3af114500b7d49\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
         jumboMode="false"
@@ -178,7 +187,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="bbf3f10625aa6975c2748007ad0b86dcb8b1ea9f">
+        sha1="8747182bf68a7b3ecfc962bf399d1d6b4b7dcbd9">
         <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d3f639a6585099189985db10c4593351a2cd3022\classes.dex" />
     </item>
     <item
@@ -207,6 +216,15 @@
         revision="25.0.0"
         sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
         <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\androidTest\debug\javawriter-2.1.1_5d7e985cc431caee1bdc67a8e55188eacbbc1cd4.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.0-beta4\739e00dea1f0ac04fdb9b6160d667e23cc50a791\retrofit-2.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="739e00dea1f0ac04fdb9b6160d667e23cc50a791">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.0-beta4_c18a20c4eb46cbbfbde4871cafb18e4624f8634b\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -243,6 +261,15 @@
         revision="25.0.0"
         sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
         <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\debug\classes_467029bc95c121d81e37624e26f826d6a00f3de1.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_798c35ef8101e8d8eca9c01167e6015ef2274dc7\classes.dex" />
     </item>
     <item
         is-multidex="false"
