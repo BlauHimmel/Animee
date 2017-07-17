@@ -1,7 +1,6 @@
 package com.zhouyuming.animee.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -105,7 +104,7 @@ public class AnimeEpisodeRecylerViewAdapter extends RecyclerView.Adapter<AnimeEp
 			}
 		}
 
-		@OnClick(R.id.animee_list_state)
+		@OnClick(R.id.anime_list_state)
 		void onStateClick() {
 			if (!isMarked) {
 				RecordUtils.store(mContext, mAnimeModel.getName(), mAnimeModel.getEpisode(), true);

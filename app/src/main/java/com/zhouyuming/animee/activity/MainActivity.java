@@ -22,10 +22,8 @@ import com.zhouyuming.animee.adapter.AnimeViewPagerAdapter;
 import com.zhouyuming.animee.event.AnimeUpdateEvent;
 import com.zhouyuming.animee.event.QRCodeEvent;
 import com.zhouyuming.animee.fragment.AnimeFragment;
-import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.param.BundleParams;
 import com.zhouyuming.animee.utils.FileUtils;
-import com.zhouyuming.animee.utils.JsonUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

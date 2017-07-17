@@ -8,7 +8,7 @@
 	android:orientation="vertical">
 	
 	<android.support.v7.widget.CardView
-		android:id="@+id/animee_list_cardview"
+		android:id="@+id/anime_list_cardview"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_margin="6dp"
@@ -25,7 +25,7 @@
 			android:orientation="horizontal">
 			
 			<ImageView
-				android:id="@+id/animee_list_icon"
+				android:id="@+id/anime_list_icon"
 				android:layout_width="60dp"
 				android:layout_height="match_parent"
 				android:adjustViewBounds="true"
@@ -38,7 +38,7 @@
 				android:orientation="vertical">
 				
 				<TextView
-					android:id="@+id/animee_list_name"
+					android:id="@+id/anime_list_name"
 					style="@style/Material_Card_Title"
 					android:textColor="@color/colorWhite"/>
 				
@@ -48,11 +48,11 @@
 					android:orientation="horizontal">
 					
 					<TextView
-						android:id="@+id/animee_list_episode"
+						android:id="@+id/anime_list_episode"
 						style="@style/Material_Card_Subtitle_16dp"/>
 					
 					<TextView
-						android:id="@+id/animee_list_date"
+						android:id="@+id/anime_list_date"
 						style="@style/Material_Card_Subtitle_16dp"/>
 				
 				</LinearLayout>
@@ -60,14 +60,14 @@
 			</LinearLayout>
 			
 			<ImageView
-				android:id="@+id/animee_list_copyright"
+				android:id="@+id/anime_list_copyright"
 				android:layout_width="75dp"
 				android:layout_height="46dp"
 				android:padding="2dp"
 				/>
 			
 			<ImageView
-				android:id="@+id/animee_list_state"
+				android:id="@+id/anime_list_state"
 				android:layout_width="48dp"
 				android:layout_height="match_parent"
 				android:clickable="true"

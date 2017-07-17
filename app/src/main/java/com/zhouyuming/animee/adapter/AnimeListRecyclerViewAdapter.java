@@ -67,25 +67,25 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 
 	class AnimeListViewHolder extends RecyclerView.ViewHolder {
 
-		@Bind(R.id.animee_list_cardview)
+		@Bind(R.id.anime_list_cardview)
 		CardView mItemCv;
 
-		@Bind(R.id.animee_list_icon)
+		@Bind(R.id.anime_list_icon)
 		ImageView mIconIv;
 
-		@Bind(R.id.animee_list_copyright)
+		@Bind(R.id.anime_list_copyright)
 		ImageView mCopyrightIv;
 
-		@Bind(R.id.animee_list_state)
+		@Bind(R.id.anime_list_state)
 		ImageView mStateIv;
 
-		@Bind(R.id.animee_list_name)
+		@Bind(R.id.anime_list_name)
 		TextView mNameTv;
 
-		@Bind(R.id.animee_list_episode)
+		@Bind(R.id.anime_list_episode)
 		TextView mEpisodeTv;
 
-		@Bind(R.id.animee_list_date)
+		@Bind(R.id.anime_list_date)
 		TextView mDateTv;
 
 		private boolean isMarked = false;
@@ -119,7 +119,7 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 			}
 		}
 
-		@OnClick(R.id.animee_list_state)
+		@OnClick(R.id.anime_list_state)
 		void onStateClick() {
 			if (!isMarked) {
 				RecordUtils.store(mContext, mAnimeModel.getName(), mAnimeModel.getEpisode(), true);
@@ -130,6 +130,11 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 				AnimationUtils.playStateChange(mStateIv, R.drawable.ic_mark);
 				isMarked = false;
 			}
+		}
+
+		@OnClick(R.id.anime_list_cardview)
+		void onItemClick() {
+
 		}
 	}
 }
