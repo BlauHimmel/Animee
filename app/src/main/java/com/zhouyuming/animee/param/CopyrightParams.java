@@ -8,21 +8,27 @@ import com.zhouyuming.animee.R;
 
 public enum CopyrightParams {
 
-	YOUKU(R.drawable.ic_youku),
-	IQIYI(R.drawable.ic_iqiyi),
-	PPTV(R.drawable.ic_pptv),
-	BILIBILI(R.drawable.ic_bilibili),
-	ACFUN(R.drawable.ic_acfun),
-	TENCENT(R.drawable.ic_tencent),
-	NONE(R.drawable.ic_baiduyun);
+	YOUKU(R.drawable.ic_youku, "Youku"),
+	IQIYI(R.drawable.ic_iqiyi, "iQiyi"),
+	PPTV(R.drawable.ic_pptv, "PPTV"),
+	BILIBILI(R.drawable.ic_bilibili, "Bilibili"),
+	ACFUN(R.drawable.ic_acfun, "Acfun"),
+	TENCENT(R.drawable.ic_tencent, "Tencent"),
+	NONE(R.drawable.ic_baiduyun, "BaiduYun");
 
 	private int resId;
+	private String name;
 
-	CopyrightParams(int resId) {
+	CopyrightParams(int resId, String name) {
 		this.resId = resId;
+		this.name = name;
 	}
 
 	public int getResId() {
 		return resId;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

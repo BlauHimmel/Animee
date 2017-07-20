@@ -29,7 +29,8 @@
 				android:layout_width="60dp"
 				android:layout_height="match_parent"
 				android:adjustViewBounds="true"
-				android:scaleType="fitXY"/>
+				android:scaleType="fitXY"
+				android:transitionName="anime_icon"/>
 			
 			<LinearLayout
 				android:layout_width="0dp"

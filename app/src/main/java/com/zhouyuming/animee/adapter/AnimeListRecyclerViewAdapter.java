@@ -1,6 +1,9 @@
 package com.zhouyuming.animee.adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,14 +14,18 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.zhouyuming.animee.R;
+import com.zhouyuming.animee.activity.AnimeInfoActivity;
+import com.zhouyuming.animee.event.AnimeInfoEvent;
 import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.utils.AnimationUtils;
 import com.zhouyuming.animee.utils.RecordUtils;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.text.MessageFormat;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -67,25 +74,25 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 
 	class AnimeListViewHolder extends RecyclerView.ViewHolder {
 
-		@Bind(R.id.anime_list_cardview)
+		@BindView(R.id.anime_list_cardview)
 		CardView mItemCv;
 
-		@Bind(R.id.anime_list_icon)
+		@BindView(R.id.anime_list_icon)
 		ImageView mIconIv;
 
-		@Bind(R.id.anime_list_copyright)
+		@BindView(R.id.anime_list_copyright)
 		ImageView mCopyrightIv;
 
-		@Bind(R.id.anime_list_state)
+		@BindView(R.id.anime_list_state)
 		ImageView mStateIv;
 
-		@Bind(R.id.anime_list_name)
+		@BindView(R.id.anime_list_name)
 		TextView mNameTv;
 
-		@Bind(R.id.anime_list_episode)
+		@BindView(R.id.anime_list_episode)
 		TextView mEpisodeTv;
 
-		@Bind(R.id.anime_list_date)
+		@BindView(R.id.anime_list_date)
 		TextView mDateTv;
 
 		private boolean isMarked = false;
@@ -114,13 +121,13 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 				mEpisodeTv.setText(mContext.getString(R.string.fin));
 				mStateIv.setVisibility(View.GONE);
 			} else {
-				mEpisodeTv.setText(MessageFormat.format(mContext.getString(R.string.episode), animeModel.getEpisode()));
+				mEpisodeTv.setText(MessageFormat.format(mContext.getString(R.string.episode_format), animeModel.getEpisode()));
 				mDateTv.setText(animeModel.getUpdateTime());
 			}
 		}
 
 		@OnClick(R.id.anime_list_state)
-		void onStateClick() {
+		void onAnimeListStateClick() {
 			if (!isMarked) {
 				RecordUtils.store(mContext, mAnimeModel.getName(), mAnimeModel.getEpisode(), true);
 				AnimationUtils.playStateChange(mStateIv, R.drawable.ic_marked);
@@ -133,8 +140,11 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 		}
 
 		@OnClick(R.id.anime_list_cardview)
-		void onItemClick() {
-
+		void onAnimeListItemClick() {
+			Intent intent = new Intent(mContext, AnimeInfoActivity.class);
+			ActivityOptions option = ActivityOptions.makeSceneTransitionAnimation((Activity) mContext, mIconIv, "anime_icon");
+			mContext.startActivity(intent, option.toBundle());
+			EventBus.getDefault().postSticky(new AnimeInfoEvent(mAnimeModel));
 		}
 	}
 }

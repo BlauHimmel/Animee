@@ -3,39 +3,40 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:fitsSystemWindows="true">
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 	
 	<android.support.design.widget.AppBarLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:theme="@style/AppTheme.AppBarOverlay"
-		android:fitsSystemWindows="true">
+		android:theme="@style/AppTheme.AppBarOverlay">
 		
 		<android.support.design.widget.CollapsingToolbarLayout
 			android:id="@+id/activity_anime_info_collapsing_toolbar_layout"
 			android:layout_width="match_parent"
-			android:layout_height="250dp"
+			android:layout_height="wrap_content"
 			android:fitsSystemWindows="true"
+			app:expandedTitleMarginStart="0dp"
 			app:contentScrim="?attr/colorPrimary"
 			app:layout_scrollFlags="scroll|exitUntilCollapsed">
 			
 			<LinearLayout
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"
+				android:layout_height="wrap_content"
 				android:orientation="horizontal"
 				app:layout_collapseMode="parallax"
 				app:layout_collapseParallaxMultiplier="0.7" >
 				
 				<ImageView
-					android:layout_width="wrap_content"
+					android:id="@+id/activity_anime_info_icon"
+					android:layout_width="120dp"
 					android:layout_height="match_parent"
 					android:scaleType="fitXY"
-					android:src="@drawable/anime_pic"/>
+					android:src="@drawable/anime_pic"
+					android:transitionName="anime_icon"/>
 				
 				<LinearLayout
 					android:layout_width="match_parent"
-					android:layout_height="match_parent"
+					android:layout_height="wrap_content"
 					android:orientation="vertical">
 					
 					<TextView
@@ -46,7 +47,7 @@
 						android:paddingStart="16dp"
 						android:paddingEnd="16dp"
 						android:paddingBottom="12dp"
-						android:textSize="32sp"
+						android:textSize="24sp"
 						android:textColor="@color/colorWhite"
 						android:text="New Game"/>
 					
@@ -57,7 +58,7 @@
 						android:paddingStart="16dp"
 						android:paddingEnd="16dp"
 						android:paddingBottom="12dp"
-						android:textSize="24sp"
+						android:textSize="20sp"
 						android:textColor="@color/colorWhite"
 						android:text="星期六 22:30"/>
 					
@@ -68,7 +69,7 @@
 						android:paddingStart="16dp"
 						android:paddingEnd="16dp"
 						android:paddingBottom="12dp"
-						android:textSize="24sp"
+						android:textSize="20sp"
 						android:textColor="@color/colorWhite"
 						android:text="Bilibili"/>
 					
@@ -79,7 +80,7 @@
 						android:paddingStart="16dp"
 						android:paddingEnd="16dp"
 						android:paddingBottom="12dp"
-						android:textSize="24sp"
+						android:textSize="20sp"
 						android:textColor="@color/colorWhite"
 						android:text="1话/共12话"/>
 					
@@ -88,6 +89,7 @@
 			</LinearLayout>
 			
 			<android.support.v7.widget.Toolbar
+				android:id="@+id/activity_anime_info_toolbar"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:minHeight="?attr/actionBarSize"
@@ -102,6 +104,7 @@
 		android:id="@+id/activity_anime_info_recycler_view"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:background="@color/colorBackground"
 		app:layout_behavior="@string/appbar_scrolling_view_behavior">
 	</android.support.v7.widget.RecyclerView>
 	

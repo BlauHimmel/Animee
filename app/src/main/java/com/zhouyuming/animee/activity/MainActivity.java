@@ -22,38 +22,42 @@ import com.zhouyuming.animee.adapter.AnimeViewPagerAdapter;
 import com.zhouyuming.animee.event.AnimeUpdateEvent;
 import com.zhouyuming.animee.event.QRCodeEvent;
 import com.zhouyuming.animee.fragment.AnimeFragment;
-import com.zhouyuming.animee.param.BundleParams;
+import com.zhouyuming.animee.param.FragmentParams;
 import com.zhouyuming.animee.utils.FileUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import butterknife.Bind;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.xudaojie.qrcodelib.CaptureActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-	@Bind(R.id.activity_main_coordinator_layout)
+	@BindView(R.id.activity_main_coordinator_layout)
 	CoordinatorLayout mCoordinatorLayout;
 
-	@Bind(R.id.activity_main_fab_add)
+	@BindView(R.id.activity_main_fab_add)
 	FloatingActionButton mFabAddAnime;
 
-	@Bind(R.id.activity_main_drawer_layout)
+	@BindView(R.id.activity_main_drawer_layout)
 	DrawerLayout mDrawerLayout;
 
-	@Bind(R.id.activity_main_nav_view)
+	@BindView(R.id.activity_main_nav_view)
 	NavigationView mNavigationView;
 
-	@Bind(R.id.activity_main_toolbar)
+	@BindView(R.id.activity_main_toolbar)
 	Toolbar mToolbar;
 
-	@Bind(R.id.activity_main_tab_layout)
+	@BindView(R.id.activity_main_tab_layout)
 	TabLayout mAnimeTab;
 
-	@Bind(R.id.activity_main_view_pager)
+	@BindView(R.id.activity_main_view_pager)
 	ViewPager mAnimePager;
 
 	private static final int REQUEST_QR_CODE = 0x01;
@@ -163,41 +167,68 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 	}
 
 	private void createFragments() {
+
+		SimpleDateFormat sdf = new SimpleDateFormat(getString(R.string.date_format));
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTimeInMillis(System.currentTimeMillis());
+		int today = calendar.get(Calendar.DAY_OF_WEEK);
+
 		Bundle bundle;
 
 		AnimeFragment animeSun = new AnimeFragment();
 		bundle = new Bundle();
-		bundle.putInt(BundleParams.INT_WEEK.getValue(), 7);
+		bundle.putInt(FragmentParams.INT_WEEK.getValue(), 7);
+		calendar.setTimeInMillis(System.currentTimeMillis());
+		calendar.add(Calendar.DAY_OF_YEAR, 1 - today);
+		bundle.putString(FragmentParams.STRING_DATE.getValue(), sdf.format(calendar.getTime()));
 		animeSun.setArguments(bundle);
 
 		AnimeFragment animeMon = new AnimeFragment();
 		bundle = new Bundle();
-		bundle.putInt(BundleParams.INT_WEEK.getValue(), 1);
+		bundle.putInt(FragmentParams.INT_WEEK.getValue(), 1);
+		calendar.setTimeInMillis(System.currentTimeMillis());
+		calendar.add(Calendar.DAY_OF_YEAR, 2 - today);
+		bundle.putString(FragmentParams.STRING_DATE.getValue(), sdf.format(calendar.getTime()));
 		animeMon.setArguments(bundle);
 
 		AnimeFragment animeTues = new AnimeFragment();
 		bundle = new Bundle();
-		bundle.putInt(BundleParams.INT_WEEK.getValue(), 2);
+		bundle.putInt(FragmentParams.INT_WEEK.getValue(), 2);
+		calendar.setTimeInMillis(System.currentTimeMillis());
+		calendar.add(Calendar.DAY_OF_YEAR, 3 - today);
+		bundle.putString(FragmentParams.STRING_DATE.getValue(), sdf.format(calendar.getTime()));
 		animeTues.setArguments(bundle);
 
 		AnimeFragment animeWed = new AnimeFragment();
 		bundle = new Bundle();
-		bundle.putInt(BundleParams.INT_WEEK.getValue(), 3);
+		bundle.putInt(FragmentParams.INT_WEEK.getValue(), 3);
+		calendar.setTimeInMillis(System.currentTimeMillis());
+		calendar.add(Calendar.DAY_OF_YEAR, 4 - today);
+		bundle.putString(FragmentParams.STRING_DATE.getValue(), sdf.format(calendar.getTime()));
 		animeWed.setArguments(bundle);
 
 		AnimeFragment animeThur = new AnimeFragment();
 		bundle = new Bundle();
-		bundle.putInt(BundleParams.INT_WEEK.getValue(), 4);
+		bundle.putInt(FragmentParams.INT_WEEK.getValue(), 4);
+		calendar.setTimeInMillis(System.currentTimeMillis());
+		calendar.add(Calendar.DAY_OF_YEAR, 5 - today);
+		bundle.putString(FragmentParams.STRING_DATE.getValue(), sdf.format(calendar.getTime()));
 		animeThur.setArguments(bundle);
 
 		AnimeFragment animeFri = new AnimeFragment();
 		bundle = new Bundle();
-		bundle.putInt(BundleParams.INT_WEEK.getValue(), 5);
+		bundle.putInt(FragmentParams.INT_WEEK.getValue(), 5);
+		calendar.setTimeInMillis(System.currentTimeMillis());
+		calendar.add(Calendar.DAY_OF_YEAR, 6 - today);
+		bundle.putString(FragmentParams.STRING_DATE.getValue(), sdf.format(calendar.getTime()));
 		animeFri.setArguments(bundle);
 
 		AnimeFragment animeSat = new AnimeFragment();
 		bundle = new Bundle();
-		bundle.putInt(BundleParams.INT_WEEK.getValue(), 6);
+		bundle.putInt(FragmentParams.INT_WEEK.getValue(), 6);
+		calendar.setTimeInMillis(System.currentTimeMillis());
+		calendar.add(Calendar.DAY_OF_YEAR, 7 - today);
+		bundle.putString(FragmentParams.STRING_DATE.getValue(), sdf.format(calendar.getTime()));
 		animeSat.setArguments(bundle);
 
 		AnimeViewPagerAdapter animeViewPagerAdapter = new AnimeViewPagerAdapter(getSupportFragmentManager());

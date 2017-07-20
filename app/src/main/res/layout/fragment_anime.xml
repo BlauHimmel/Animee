@@ -5,6 +5,34 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 	
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:paddingTop="6dp"
+		android:orientation="horizontal">
+		
+		<ImageView
+			android:layout_width="40dp"
+			android:layout_height="1dp"
+			android:layout_gravity="center_vertical"
+			android:background="@color/bg_color"/>
+		
+		<TextView
+			android:id="@+id/fragment_anime_date"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:textColor="@color/bg_color"/>
+		
+		<ImageView
+			android:layout_width="40dp"
+			android:layout_height="1dp"
+			android:layout_gravity="center_vertical"
+			android:background="@color/bg_color"/>
+	
+	</LinearLayout>
+	
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/fragment_anime_recyclerview"
 		android:layout_width="match_parent"

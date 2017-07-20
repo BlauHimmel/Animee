@@ -23,11 +23,14 @@
 	<string name="feedback">反馈</string>
 	<string name="about">关于</string>
 	
-	<string name="episode">第{0}话</string>
+	<string name="episode_format">第{0}话</string>
+	<string name="time_format">星期{0} {1}</string>
+	<string name="progress_format">{0}话/共{1}话</string>
 	<string name="fin">完结</string>
 	
 	<string name="add_success">添加成功</string>
 	<string name="add_fail">番剧已经存在</string>
 	<string name="cancel_marke">确定取消记录吗?</string>
+	<string name="date_format">MM-dd</string>
 
 </resources>

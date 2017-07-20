@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:card_view="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+	
+	<android.support.v7.widget.CardView
+		android:id="@+id/anime_episode_item_cardview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="6dp"
+		android:clickable="true"
+		android:foreground="?attr/selectableItemBackground"
+		app:cardBackgroundColor="@color/colorBackground"
+		card_view:cardCornerRadius="@dimen/card_corner_radius"
+		card_view:cardElevation="@dimen/card_elevation">
+		
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:orientation="horizontal">
+			
+			<TextView
+				android:id="@+id/anime_episode_item_episode"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="16dp"
+				android:textSize="20sp"
+				android:textColor="@color/colorWhite"
+				android:text="第一话"/>
+			
+			<TextView
+				android:id="@+id/anime_episode_item_date"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:padding="16dp"
+				android:textSize="16sp"
+				android:textColor="#777"
+				android:text="7月20日"/>
+			
+			<ImageView
+				android:id="@+id/anime_episode_item_state"
+				android:layout_width="48dp"
+				android:layout_height="match_parent"
+				android:clickable="true"
+				android:foreground="?attr/selectableItemBackgroundBorderless"
+				android:padding="12dp"
+				android:src="@drawable/ic_mark"/>
+		
+		</LinearLayout>
+	
+	</android.support.v7.widget.CardView>
+
+</LinearLayout>
+

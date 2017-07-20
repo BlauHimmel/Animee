@@ -6,6 +6,7 @@ import com.zhouyuming.animee.param.CopyrightParams;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by ZhouYuming on 2017/7/9.
@@ -57,7 +58,7 @@ public class AnimeModel implements Model{
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		int day = (int) (System.currentTimeMillis() - startTime) / (1000 * 3600 * 24);
+		int day = (int) ((System.currentTimeMillis() - startTime) / (1000 * 3600 * 24));
 		int episode = day / 7 + 1;
 		return episode <= total ? episode : total;
 	}
