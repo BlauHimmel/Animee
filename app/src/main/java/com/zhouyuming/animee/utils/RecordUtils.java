@@ -17,6 +17,7 @@ import java.util.GregorianCalendar;
 public class RecordUtils {
 
 	public static void store(Context context, String name, int episode, boolean isMarked) {
+		name = name.replace("/", " ");
 		SharedPreferences sp = context.getSharedPreferences(name, Context.MODE_PRIVATE);
 		SimpleDateFormat sdf = new SimpleDateFormat(context.getString(R.string.date_format_2));
 		Calendar calendar = new GregorianCalendar();
@@ -34,6 +35,7 @@ public class RecordUtils {
 	}
 
 	public static boolean loadMark(Context context, String name, int episode) {
+		name = name.replace("/", " ");
 		SharedPreferences sp = context.getSharedPreferences(name, Context.MODE_PRIVATE);
 		boolean isMarked = sp.getInt(String.valueOf(episode), 0) == 1;
 		Log.i("Utils", "[RecordUtils]loadMark <<" + name + ">> (" + episode + ") marked = " + isMarked);
@@ -41,6 +43,7 @@ public class RecordUtils {
 	}
 
 	public static String loadDate(Context context, String name, int episode) {
+		name = name.replace("/", " ");
 		SharedPreferences sp = context.getSharedPreferences(name, Context.MODE_PRIVATE);
 		String date = sp.getString(String.valueOf(episode) + "_date", "");
 		Log.i("Utils", "[RecordUtils]loadDate <<" + name + ">> (" + episode + ") date = " + date);
@@ -48,6 +51,7 @@ public class RecordUtils {
 	}
 
 	public static void remove(Context context, String name) {
+		name = name.replace("/", " ");
 		SharedPreferences sp = context.getSharedPreferences(name, Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = sp.edit();
 		editor.clear();

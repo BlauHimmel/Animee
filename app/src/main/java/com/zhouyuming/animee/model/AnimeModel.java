@@ -60,7 +60,11 @@ public class AnimeModel implements Model{
 		}
 		int day = (int) ((System.currentTimeMillis() - startTime) / (1000 * 3600 * 24));
 		int episode = day / 7 + 1;
-		return episode <= total ? episode : total;
+		if (total == -1) {
+			return episode;
+		} else {
+			return episode <= total ? episode : total;
+		}
 	}
 
 	public String getUpdateTime() {
@@ -126,6 +130,9 @@ public class AnimeModel implements Model{
 	}
 
 	public boolean isFin() {
+		if (total == -1) {
+			return false;
+		}
 		long startTime = System.currentTimeMillis();
 		try {
 			startTime = new SimpleDateFormat("yyyyMMddHHmm").parse(startDate).getTime();

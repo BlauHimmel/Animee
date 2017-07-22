@@ -14,7 +14,7 @@ public enum CopyrightParams {
 	BILIBILI(R.drawable.ic_bilibili, "Bilibili"),
 	ACFUN(R.drawable.ic_acfun, "Acfun"),
 	TENCENT(R.drawable.ic_tencent, "Tencent"),
-	NONE(R.drawable.ic_baiduyun, "BaiduYun");
+	BAIDUYUN(R.drawable.ic_baiduyun, "BaiduYun");
 
 	private int resId;
 	private String name;

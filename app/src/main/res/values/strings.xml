@@ -19,12 +19,14 @@
 	
 	<string name="setting">设置</string>
 	<string name="about">关于</string>
+	<string name="delete">删除</string>
 	<string name="delete_confirm">确认要删除吗?</string>
 	<string name="ok">确认</string>
 	
 	<string name="episode_format">第{0}话</string>
 	<string name="time_format">星期{0} {1}</string>
-	<string name="progress_format">{0}话/共{1}话</string>
+	<string name="progress_format">第{0}话/共{1}话</string>
+	<string name="progress_format2">第{0}话</string>
 	<string name="fin">完结</string>
 	
 	<string name="add_success">添加成功</string>

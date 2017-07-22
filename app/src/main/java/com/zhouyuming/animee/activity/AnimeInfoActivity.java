@@ -13,6 +13,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -75,8 +76,8 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 	@BindView(R.id.activity_anime_info_appbar_layout)
 	AppBarLayout mAppBarLayout;
 
-	@BindView(R.id.activity_anime_info_fab_delete)
-	FloatingActionButton mDeleteFab;
+	@BindView(R.id.activity_anime_info_fab_modify)
+	FloatingActionButton mModifyFab;
 
 	private AnimeModel mModel;
 
@@ -91,7 +92,7 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		initStatusBar();
+		//initStatusBar();
 		setContentView(R.layout.activity_anime_info);
 		ButterKnife.bind(this);
 		initialize();
@@ -118,7 +119,17 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 		mAnimeNameTv.setText(mModel.getName());
 		mTimeTv.setText(MessageFormat.format(getString(R.string.time_format), TextUtils.getWeekName(this, mModel.getWeek()), mModel.getUpdateTime()));
 		mCopyrightTv.setText(mModel.getCopyright().getName());
-		mProgressTv.setText(MessageFormat.format(getString(R.string.progress_format), mModel.getEpisode(), mModel.getTotal()));
+		if (mModel.getTotal() != -1) {
+			mProgressTv.setText(MessageFormat.format(getString(R.string.progress_format), mModel.getEpisode(), mModel.getTotal()));
+		} else {
+			mProgressTv.setText(MessageFormat.format(getString(R.string.progress_format2), mModel.getEpisode()));
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.info, menu);
+		return true;
 	}
 
 	@Override
@@ -126,6 +137,16 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 		switch (item.getItemId()){
 			case android.R.id.home:
 				finish();
+				break;
+			case R.id.menu_delete:
+				Snackbar.make(mCoordinatorLayout, getString(R.string.delete_confirm), Snackbar.LENGTH_LONG)
+						.setAction(getString(R.string.ok), view -> {
+							FileUtils.remove(mModel, AnimeModel.class);
+							RecordUtils.remove(AnimeInfoActivity.this, mModel.getName());
+							EventBus.getDefault().post(new AnimeRefreshEvent());
+							finish();
+						})
+						.show();
 				break;
 		}
 		return super.onOptionsItemSelected(item);
@@ -163,16 +184,9 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 		}
 	}
 
-	@OnClick(R.id.activity_anime_info_fab_delete)
-	void onDeleteFabClick() {
-		Snackbar.make(mCoordinatorLayout, getString(R.string.delete_confirm), Snackbar.LENGTH_LONG)
-				.setAction(getString(R.string.ok), view -> {
-					FileUtils.remove(mModel, AnimeModel.class);
-					RecordUtils.remove(AnimeInfoActivity.this, mModel.getName());
-					EventBus.getDefault().post(new AnimeRefreshEvent());
-					finish();
-				})
-				.show();
+	@OnClick(R.id.activity_anime_info_fab_modify)
+	void onModifyFabClick() {
+
 	}
 
 	private void initStatusBar()
