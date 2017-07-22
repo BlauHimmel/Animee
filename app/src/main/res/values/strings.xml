@@ -13,15 +13,14 @@
 	<string name="thursday">四</string>
 	<string name="friday">五</string>
 	<string name="saturday">六</string>
-
-	<string name="nav_title1">追番</string>
+	
 	<string name="drama">番剧</string>
 	<string name="count">统计</string>
-
-	<string name="nav_title2">选项</string>
+	
 	<string name="setting">设置</string>
-	<string name="feedback">反馈</string>
 	<string name="about">关于</string>
+	<string name="delete_confirm">确认要删除吗?</string>
+	<string name="ok">确认</string>
 	
 	<string name="episode_format">第{0}话</string>
 	<string name="time_format">星期{0} {1}</string>
@@ -31,6 +30,11 @@
 	<string name="add_success">添加成功</string>
 	<string name="add_fail">番剧已经存在</string>
 	<string name="cancel_marke">确定取消记录吗?</string>
-	<string name="date_format">MM-dd</string>
+	<string name="date_format_1">MM-dd</string>
+	<string name="date_format_2">MM-dd HH:mm</string>
+	<string name="watched_time_format">{0}({1})</string>
+	<string name="episode_list">分集表</string>
+	
+	<string name="author">作者:BlauHimmel 有问题欢迎到我的Github上留言\nhttps://github.com/BlauHimmel</string>
 
 </resources>

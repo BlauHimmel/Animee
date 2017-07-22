@@ -21,17 +21,23 @@ public class JsonUtils {
 
 	@NonNull
 	public static <T extends Model> String getJson(@NonNull T model) {
-		return mGson.toJson(model);
+		String json = mGson.toJson(model);
+		Log.i("Utils", "[JsonUtils]get json from model  -> " + json);
+		return json;
 	}
 
 	@NonNull
 	public static <T extends Model> String getJson(@NonNull List<T> models) {
-		return mGson.toJson(models);
+		String json = mGson.toJson(models);
+		Log.i("Utils", "[JsonUtils]get json from models -> " + json);
+		return json;
 	}
 
 	@Nullable
 	public static <T extends Model> T getModel(@NonNull String json, @NonNull Class<T> classOfModel) {
-		return mGson.fromJson(json, classOfModel);
+		T model = mGson.fromJson(json, classOfModel);
+		Log.i("Utils", "[JsonUtils]get model from json -> " + model);
+		return model;
 	}
 
 	@NonNull
@@ -43,6 +49,10 @@ public class JsonUtils {
 		JsonArray array = new JsonParser().parse(json).getAsJsonArray();
 		for (JsonElement element : array) {
 			models.add(new Gson().fromJson(element, classOfModel));
+		}
+		Log.i("Utils", "[JsonUtils]get models from json -> size : " + models.size());
+		for (int i = 0; i < models.size(); i++) {
+			Log.i("Utils", "[JsonUtils]model["+ i + "] -> : " + models.get(i));
 		}
 		return models;
 	}

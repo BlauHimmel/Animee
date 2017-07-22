@@ -36,7 +36,7 @@ public class EpisodeModel implements Model{
 
 	@Override
 	public int getPrimaryKey1() {
-		return 1;
+		return 0;
 	}
 
 	@Override

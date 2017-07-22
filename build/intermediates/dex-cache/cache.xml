@@ -2,13 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="F:\GitHub\Animee\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.0.1\b34c1f2d993044656e87f88970b6818e99e886ba\okhttp-3.0.1.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_175bf9cef4dcc1dbac58a1ded411b404c7c4c8b1\classes.dex" />
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\debug\okhttp-3.0.1_97fc54b0ed2698faaf81936e0a3af114500b7d49.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.4.0\ea392375cf9ff59234a82e7928a204215ccc98cd\butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\debug\butterknife-annotations-8.4.0_e4d0386b2b44fd3b3e7fdde2454ac61372863897.jar" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +27,51 @@
         revision="25.0.0"
         sha1="5c07fe6603d5c7a19b8838d8b811a2511e9dff55">
         <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d3f639a6585099189985db10c4593351a2cd3022\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\GitHub\Animee\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_175bf9cef4dcc1dbac58a1ded411b404c7c4c8b1\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.0-beta4\739e00dea1f0ac04fdb9b6160d667e23cc50a791\retrofit-2.0.0-beta4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="739e00dea1f0ac04fdb9b6160d667e23cc50a791">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\debug\retrofit-2.0.0-beta4_c18a20c4eb46cbbfbde4871cafb18e4624f8634b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\john\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\debug\okio-1.6.0_798c35ef8101e8d8eca9c01167e6015ef2274dc7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="G:\AndroidAVD\.android\build-cache\b404f34e4b9ff9ddc62e14c9d15ce10a59947448\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\debug\classes_2c5cd24a9a0e963cd50d876787fc282f63a8ecc6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\john\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.1.0\support-annotations-24.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8a23146e1a8c7cb4758e3d3f62449213f1e51f67">
+        <dex dex="F:\GitHub\Animee\app\build\intermediates\pre-dexed\debug\support-annotations-24.1.0_86d2f7b0dc658df0cb54eda0a322cf8cff142311.jar" />
     </item>
 
 </items>

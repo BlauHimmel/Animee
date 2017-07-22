@@ -20,10 +20,6 @@
 				android:id="@+id/nav_setting"
 				android:icon="@drawable/ic_setting"
 				android:title="@string/setting"/>
-		<item
-				android:id="@+id/nav_feedback"
-				android:icon="@drawable/ic_feedback"
-				android:title="@string/feedback"/>
 
 		<item
 				android:id="@+id/nav_about"
@@ -31,5 +27,5 @@
 				android:title="@string/about"/>
 
 	</group>
-ト
+
 </menu>

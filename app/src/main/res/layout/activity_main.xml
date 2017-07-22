@@ -13,7 +13,7 @@
 		layout="@layout/app_bar_main"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"/>
-	
+<!--
 	<android.support.design.widget.NavigationView
 		android:id="@+id/activity_main_nav_view"
 		android:layout_width="wrap_content"
@@ -26,5 +26,5 @@
 		app:itemTextAppearance="@color/colorWhite"
 		app:itemTextColor="@color/colorWhite"
 		app:menu="@menu/activity_main_drawer"/>
-
+-->
 </android.support.v4.widget.DrawerLayout>

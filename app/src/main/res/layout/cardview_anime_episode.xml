@@ -11,7 +11,10 @@
 		android:id="@+id/anime_episode_item_cardview"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="6dp"
+		android:layout_marginTop="3dp"
+		android:layout_marginStart="6dp"
+		android:layout_marginEnd="6dp"
+		android:layout_marginBottom="3dp"
 		android:clickable="true"
 		android:foreground="?attr/selectableItemBackground"
 		app:cardBackgroundColor="@color/colorBackground"
@@ -31,7 +34,7 @@
 				android:padding="16dp"
 				android:textSize="20sp"
 				android:textColor="@color/colorWhite"
-				android:text="第一话"/>
+				/>
 			
 			<TextView
 				android:id="@+id/anime_episode_item_date"
@@ -41,7 +44,7 @@
 				android:padding="16dp"
 				android:textSize="16sp"
 				android:textColor="#777"
-				android:text="7月20日"/>
+				/>
 			
 			<ImageView
 				android:id="@+id/anime_episode_item_state"

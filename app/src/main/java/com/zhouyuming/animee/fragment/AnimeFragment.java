@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.adapter.AnimeListRecyclerViewAdapter;
+import com.zhouyuming.animee.event.AnimeRefreshEvent;
 import com.zhouyuming.animee.event.AnimeUpdateEvent;
+import com.zhouyuming.animee.event.MarkUpdateEvent;
 import com.zhouyuming.animee.event.QRCodeEvent;
 import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.param.FragmentParams;
@@ -78,6 +80,23 @@ public class AnimeFragment extends Fragment {
 		} else {
 			EventBus.getDefault().post(new AnimeUpdateEvent(model.getWeek(), false));
 		}
+	}
+
+	@Subscribe
+	public void onMarkUpdate(MarkUpdateEvent markUpdateEvent) {
+		for (int i = 0; i < mRecyclerView.getChildCount(); i++) {
+			View view = mRecyclerView.getChildAt(i);
+			RecyclerView.ViewHolder viewHolder = mRecyclerView.getChildViewHolder(view);
+			if (viewHolder != null) {
+				((AnimeListRecyclerViewAdapter.AnimeListViewHolder) viewHolder).updateMark();
+			}
+		}
+	}
+
+	@Subscribe
+	public void onAnimeRefresh(AnimeRefreshEvent animeRefreshEvent) {
+		List<AnimeModel> animeModels = FileUtils.readFiles(mWeek, AnimeModel.class);
+		mAnimeListRecyclerViewAdapter.loadAnimeModel(animeModels);
 	}
 
 	private void initialize() {

@@ -1,7 +1,5 @@
 package com.zhouyuming.animee.adapter;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
@@ -72,7 +70,7 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 		return mAnimeModels.size();
 	}
 
-	class AnimeListViewHolder extends RecyclerView.ViewHolder {
+	public class AnimeListViewHolder extends RecyclerView.ViewHolder {
 
 		@BindView(R.id.anime_list_cardview)
 		CardView mItemCv;
@@ -106,23 +104,32 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 
 		void updateUI(AnimeModel animeModel) {
 			this.mAnimeModel = animeModel;
-			Picasso.with(mContext).load(animeModel.getIconUrl()).into(mIconIv);
-			Picasso.with(mContext).load(animeModel.getCopyright().getResId()).into(mCopyrightIv);
-			mNameTv.setText(animeModel.getName());
+			Picasso.with(mContext).load(mAnimeModel.getIconUrl()).into(mIconIv);
+			Picasso.with(mContext).load(mAnimeModel.getCopyright().getResId()).into(mCopyrightIv);
+			mNameTv.setText(mAnimeModel.getName());
 
-			isMarked = RecordUtils.load(mContext, animeModel.getName(), animeModel.getEpisode());
+			isMarked = RecordUtils.loadMark(mContext, mAnimeModel.getName(), mAnimeModel.getEpisode());
 			if (isMarked) {
 				mStateIv.setImageResource(R.drawable.ic_marked);
 			} else {
 				mStateIv.setImageResource(R.drawable.ic_mark);
 			}
 
-			if (animeModel.isFin()) {
+			if (mAnimeModel.isFin()) {
 				mEpisodeTv.setText(mContext.getString(R.string.fin));
 				mStateIv.setVisibility(View.GONE);
 			} else {
-				mEpisodeTv.setText(MessageFormat.format(mContext.getString(R.string.episode_format), animeModel.getEpisode()));
-				mDateTv.setText(animeModel.getUpdateTime());
+				mEpisodeTv.setText(MessageFormat.format(mContext.getString(R.string.episode_format), mAnimeModel.getEpisode()));
+				mDateTv.setText(mAnimeModel.getUpdateTime());
+			}
+		}
+
+		public void updateMark() {
+			isMarked = RecordUtils.loadMark(mContext, mAnimeModel.getName(), mAnimeModel.getEpisode());
+			if (isMarked) {
+				mStateIv.setImageResource(R.drawable.ic_marked);
+			} else {
+				mStateIv.setImageResource(R.drawable.ic_mark);
 			}
 		}
 
@@ -142,8 +149,8 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 		@OnClick(R.id.anime_list_cardview)
 		void onAnimeListItemClick() {
 			Intent intent = new Intent(mContext, AnimeInfoActivity.class);
-			ActivityOptions option = ActivityOptions.makeSceneTransitionAnimation((Activity) mContext, mIconIv, "anime_icon");
-			mContext.startActivity(intent, option.toBundle());
+			//ActivityOptions option = ActivityOptions.makeSceneTransitionAnimation((Activity) mContext, mIconIv, "anime_icon");
+			mContext.startActivity(intent/*, option.toBundle()*/);
 			EventBus.getDefault().postSticky(new AnimeInfoEvent(mAnimeModel));
 		}
 	}

@@ -9,10 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zhouyuming.animee.R;
+import com.zhouyuming.animee.event.MarkUpdateEvent;
 import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.model.EpisodeModel;
 import com.zhouyuming.animee.utils.AnimationUtils;
 import com.zhouyuming.animee.utils.RecordUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
@@ -48,7 +51,7 @@ public class AnimeEpisodeRecyclerViewAdapter extends RecyclerView.Adapter<AnimeE
 		int mouth = Integer.parseInt(mAnimeModel.getStartDate().substring(4, 6));
 		int day = Integer.parseInt(mAnimeModel.getStartDate().substring(6, 8));
 		calendar.set(year, mouth - 1, day);
-		SimpleDateFormat sdf = new SimpleDateFormat(mContext.getString(R.string.date_format));
+		SimpleDateFormat sdf = new SimpleDateFormat(mContext.getString(R.string.date_format_1));
 
 		int episode = mAnimeModel.getEpisode();
 		for (int i = 1; i <= episode; i++) {
@@ -75,7 +78,7 @@ public class AnimeEpisodeRecyclerViewAdapter extends RecyclerView.Adapter<AnimeE
 		return mEpisodeModels.size();
 	}
 
-	class AnimeEpisodeViewHolder extends RecyclerView.ViewHolder {
+	public class AnimeEpisodeViewHolder extends RecyclerView.ViewHolder {
 
 		@BindView(R.id.anime_episode_item_episode)
 		TextView mEpisodeTv;
@@ -88,37 +91,48 @@ public class AnimeEpisodeRecyclerViewAdapter extends RecyclerView.Adapter<AnimeE
 
 		private boolean isMarked = false;
 
+		private EpisodeModel mEpisodeModel;
+
 		AnimeEpisodeViewHolder(View itemView) {
 			super(itemView);
 			ButterKnife.bind(this, itemView);
-			//mEpisodeTv = (TextView) itemView.findViewById(R.id.anime_episode_item_episode);
-			//mDate = (TextView) itemView.findViewById(R.id.anime_episode_item_date);
-			//mStateIv = (ImageView) itemView.findViewById(R.id.anime_episode_item_state);
 		}
 
 		void updateUI(EpisodeModel episodeModel) {
-			mEpisodeTv.setText(MessageFormat.format(mContext.getString(R.string.episode_format), episodeModel.getEpisode()));
-			mDate.setText(episodeModel.getDate());
+			mEpisodeModel = episodeModel;
 
-			isMarked = RecordUtils.load(mContext, mAnimeModel.getName(), episodeModel.getEpisode());
+			mEpisodeTv.setText(MessageFormat.format(mContext.getString(R.string.episode_format), mEpisodeModel.getEpisode()));
+
+			isMarked = RecordUtils.loadMark(mContext, mAnimeModel.getName(), mEpisodeModel.getEpisode());
 			if (isMarked) {
 				mStateIv.setImageResource(R.drawable.ic_marked);
 			} else {
 				mStateIv.setImageResource(R.drawable.ic_mark);
+			}
+
+			if (isMarked) {
+				String date = RecordUtils.loadDate(mContext, mAnimeModel.getName(), mEpisodeModel.getEpisode());
+				mDate.setText(MessageFormat.format(mContext.getString(R.string.watched_time_format), mEpisodeModel.getDate(), date));
+			} else {
+				mDate.setText(mEpisodeModel.getDate());
 			}
 		}
 
 		@OnClick(R.id.anime_episode_item_state)
 		void onAnimeEpisodeStateClick() {
 			if (!isMarked) {
-				RecordUtils.store(mContext, mAnimeModel.getName(), mAnimeModel.getEpisode(), true);
+				RecordUtils.store(mContext, mAnimeModel.getName(), mEpisodeModel.getEpisode(), true);
 				AnimationUtils.playStateChange(mStateIv, R.drawable.ic_marked);
+				String date = RecordUtils.loadDate(mContext, mAnimeModel.getName(), mEpisodeModel.getEpisode());
+				mDate.setText(MessageFormat.format(mContext.getString(R.string.watched_time_format), mEpisodeModel.getDate(), date));
 				isMarked = true;
 			} else {
-				RecordUtils.store(mContext, mAnimeModel.getName(), mAnimeModel.getEpisode(), false);
+				RecordUtils.store(mContext, mAnimeModel.getName(), mEpisodeModel.getEpisode(), false);
 				AnimationUtils.playStateChange(mStateIv, R.drawable.ic_mark);
+				mDate.setText(mEpisodeModel.getDate());
 				isMarked = false;
 			}
+			EventBus.getDefault().post(new MarkUpdateEvent());
 		}
 	}
 }
