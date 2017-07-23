@@ -1,5 +1,6 @@
 package com.zhouyuming.animee.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -25,6 +26,7 @@ import com.squareup.picasso.Picasso;
 import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.adapter.AnimeEpisodeRecyclerViewAdapter;
 import com.zhouyuming.animee.event.AnimeInfoEvent;
+import com.zhouyuming.animee.event.AnimeModifyEvent;
 import com.zhouyuming.animee.event.AnimeRefreshEvent;
 import com.zhouyuming.animee.model.AnimeModel;
 import com.zhouyuming.animee.utils.FileUtils;
@@ -97,7 +99,6 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 		ButterKnife.bind(this);
 		initialize();
 		EventBus.getDefault().register(this);
-		mAppBarLayout.addOnOffsetChangedListener(this);
 	}
 
 	@Override
@@ -186,7 +187,9 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 
 	@OnClick(R.id.activity_anime_info_fab_modify)
 	void onModifyFabClick() {
-
+		EventBus.getDefault().postSticky(new AnimeModifyEvent(mModel));
+		Intent intent = new Intent(this, ModifyActivity.class);
+		startActivity(intent);
 	}
 
 	private void initStatusBar()
@@ -204,8 +207,8 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 	}
 
 	private void initialize() {
+		mAppBarLayout.addOnOffsetChangedListener(this);
 		mCollapsingToolbarLayout.setTitle(" ");
 		setSupportActionBar(mToolbar);
 	}
-
 }

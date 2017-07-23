@@ -6,7 +6,9 @@ import com.zhouyuming.animee.param.CopyrightParams;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by ZhouYuming on 2017/7/9.
@@ -27,10 +29,6 @@ public class AnimeModel implements Model{
 	private String startDate;	//201707150230->2017-07-15 02:30
 
 	@Expose
-	@SerializedName("week")
-	private int week;
-
-	@Expose
 	@SerializedName("copyright")
 	private CopyrightParams copyright;
 
@@ -38,15 +36,18 @@ public class AnimeModel implements Model{
 	@SerializedName("total")
 	private int total;
 
+	private int week = -1;
+
+	private int episode = -1;
+
 	public AnimeModel() {
 
 	}
 
-	public AnimeModel(String iconUrl, String name, String startDate, int week, CopyrightParams copyright, int total) {
+	public AnimeModel(String iconUrl, String name, String startDate, CopyrightParams copyright, int total) {
 		this.iconUrl = iconUrl;
 		this.name = name;
 		this.startDate = startDate;
-		this.week = week;
 		this.copyright = copyright;
 		this.total = total;
 	}
@@ -59,12 +60,15 @@ public class AnimeModel implements Model{
 			e.printStackTrace();
 		}
 		int day = (int) ((System.currentTimeMillis() - startTime) / (1000 * 3600 * 24));
-		int episode = day / 7 + 1;
-		if (total == -1) {
-			return episode;
-		} else {
-			return episode <= total ? episode : total;
+		if (day < 0) {
+			return 1;
 		}
+		if (total == -1) {
+			episode = day / 7 + 1;
+		} else {
+			episode = ((day / 7 + 1) <= total ? (day / 7 + 1) : total);
+		}
+		return episode;
 	}
 
 	public String getUpdateTime() {
@@ -96,11 +100,18 @@ public class AnimeModel implements Model{
 	}
 
 	public int getWeek() {
+		try {
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(new SimpleDateFormat("yyyyMMddHHmm").parse(startDate));
+			if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+				week = 7;
+			} else {
+				week = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		return week;
-	}
-
-	public void setWeek(int week) {
-		this.week = week;
 	}
 
 	public CopyrightParams getCopyright() {
@@ -121,7 +132,7 @@ public class AnimeModel implements Model{
 
 	@Override
 	public int getPrimaryKey1() {
-		return week;
+		return getWeek();
 	}
 
 	@Override
@@ -164,7 +175,6 @@ public class AnimeModel implements Model{
 
 		AnimeModel model = (AnimeModel) o;
 
-		if (week != model.week) return false;
 		if (total != model.total) return false;
 		if (iconUrl != null ? !iconUrl.equals(model.iconUrl) : model.iconUrl != null) return false;
 		if (name != null ? !name.equals(model.name) : model.name != null) return false;
@@ -179,7 +189,6 @@ public class AnimeModel implements Model{
 		int result = iconUrl != null ? iconUrl.hashCode() : 0;
 		result = 31 * result + (name != null ? name.hashCode() : 0);
 		result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
-		result = 31 * result + week;
 		result = 31 * result + (copyright != null ? copyright.hashCode() : 0);
 		result = 31 * result + total;
 		return result;

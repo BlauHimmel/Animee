@@ -7,5 +7,5 @@ package com.zhouyuming.animee.param;
 public enum UpdateParams {
 
 	OVERRIDE,
-	MODIFY,
+	APPEND
 }

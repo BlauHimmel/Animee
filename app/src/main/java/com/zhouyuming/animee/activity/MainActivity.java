@@ -12,9 +12,6 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -25,6 +22,7 @@ import android.view.WindowManager;
 
 import com.zhouyuming.animee.R;
 import com.zhouyuming.animee.adapter.AnimeViewPagerAdapter;
+import com.zhouyuming.animee.event.AnimeRefreshEvent;
 import com.zhouyuming.animee.event.AnimeUpdateEvent;
 import com.zhouyuming.animee.event.QRCodeEvent;
 import com.zhouyuming.animee.fragment.AnimeFragment;
@@ -43,7 +41,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.github.xudaojie.qrcodelib.CaptureActivity;
 
-import static java.util.Calendar.SHORT;
 import static java.util.Calendar.SUNDAY;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -145,6 +142,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		}
 	}
 
+	@Subscribe
+	public void onAnimeRefresh(AnimeRefreshEvent animeRefreshEvent) {
+		Snackbar.make(mCoordinatorLayout, getString(R.string.refresh), Snackbar.LENGTH_SHORT).show();
+	}
+
 	@OnClick(R.id.activity_main_fab_add)
 	public void onAddAnimeFabClick() {
 		Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
@@ -168,10 +170,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		mNavigationView.setNavigationItemSelectedListener(this);
 */
 		mAnimePager.setOffscreenPageLimit(6);
-
-
-
-
 	}
 
 	private void createFragments() {

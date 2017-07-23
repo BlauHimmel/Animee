@@ -27,10 +27,11 @@
 		
 		<activity android:name="io.github.xudaojie.qrcodelib.CaptureActivity"/>
 		
+		<activity android:name=".activity.ModifyActivity"/>
+		
 		<activity
 			android:name=".activity.AnimeInfoActivity"
 			android:theme="@style/AppTheme.NoActionBar"/>
-	
 	</application>
 
 </manifest>

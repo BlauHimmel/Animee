@@ -89,8 +89,8 @@ public class FileUtils {
 
 		if (updateParams == UpdateParams.OVERRIDE) {
 			return updateFilesOverride(models);
-		} else if (updateParams == UpdateParams.MODIFY) {
-			return updateFilesModify(models, classOfModel);
+		} else if (updateParams == UpdateParams.APPEND) {
+			return updateFilesAppend(models, classOfModel);
 		} else {
 			return false;
 		}
@@ -132,7 +132,7 @@ public class FileUtils {
 		return true;
 	}
 
-	private static <T extends Model> boolean updateFilesModify(List<T> models, Class<T> classOfModel) {
+	private static <T extends Model> boolean updateFilesAppend(List<T> models, Class<T> classOfModel) {
 
 		if (!mIsInitialized || models == null) {
 			Log.i("Utils", "[FileUtils]not initialized");
@@ -233,18 +233,15 @@ public class FileUtils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return day;
 	}
 
 	public static <T extends Model> void remove(T model, Class<T> classOfModel) {
-		SparseArray<List<T>> weeks = readFiles(classOfModel);
-		int week = model.getPrimaryKey1();
-		List<T> day = weeks.get(week - 1);
+		List<T> day = readFiles(model.getPrimaryKey1(), classOfModel);
 		if (day.contains(model)) {
 			try {
 				day.remove(model);
-				FileOutputStream fos = new FileOutputStream(mAnimeeFiles[week - 1]);
+				FileOutputStream fos = new FileOutputStream(mAnimeeFiles[model.getPrimaryKey1() - 1]);
 				String json = JsonUtils.getJson(day);
 				fos.write(json.getBytes());
 				fos.close();
@@ -253,5 +250,44 @@ public class FileUtils {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public static <T extends Model> boolean replace(T from, T to, Class<T> classOfModel) {
+		try {
+			if (from.getPrimaryKey1() == to.getPrimaryKey1()) {
+				List<T> day = readFiles(from.getPrimaryKey1(), classOfModel);
+				if (day.contains(from)) {
+					day.remove(from);
+					day.add(to);
+					Collections.sort(day, (model1, model2) -> model1.getPrimaryKey2() - model2.getPrimaryKey2());
+					String json = JsonUtils.getJson(day);
+					FileOutputStream fos = new FileOutputStream(mAnimeeFiles[to.getPrimaryKey1() - 1]);
+					fos.write(json.getBytes());
+					fos.close();
+					Log.i("Utils", "[FileUtils]replace model : " + from + " with model : " + to + "on file : " + mAnimeeFiles[to.getPrimaryKey1() - 1].getName());
+					return true;
+				}
+			} else {
+				List<T> fromDay = readFiles(from.getPrimaryKey1(), classOfModel);
+				List<T> toDay = readFiles(to.getPrimaryKey1(), classOfModel);
+				if (fromDay.contains(from)) {
+					fromDay.remove(from);
+					toDay.add(to);
+					Collections.sort(toDay, (model1, model2) -> model1.getPrimaryKey2() - model2.getPrimaryKey2());
+					String fromJson = JsonUtils.getJson(fromDay);
+					String toJson = JsonUtils.getJson(toDay);
+					FileOutputStream fos = new FileOutputStream(mAnimeeFiles[from.getPrimaryKey1() - 1]);
+					fos.write(fromJson.getBytes());
+					fos.close();
+					fos = new FileOutputStream(mAnimeeFiles[to.getPrimaryKey1() - 1]);
+					fos.write(toJson.getBytes());
+					fos.close();
+					return true;
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
