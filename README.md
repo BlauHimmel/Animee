@@ -1,7 +1,7 @@
 # Animee
 
-下载地址: https://pan.baidu.com/s/1c1WOVUo 密码: v6vr
-
+百度云: https://pan.baidu.com/s/1c1WOVUo 密码: v6vr
+酷安网: https://www.coolapk.com/apk/151453
 ---
 
 ># 使用方式
