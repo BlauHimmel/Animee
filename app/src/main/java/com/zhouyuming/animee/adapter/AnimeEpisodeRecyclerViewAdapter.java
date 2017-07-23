@@ -28,6 +28,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.view.View.GONE;
+
 /**
  * Created by ZhouYuming on 2017/7/19.
  */
@@ -38,6 +40,7 @@ public class AnimeEpisodeRecyclerViewAdapter extends RecyclerView.Adapter<AnimeE
 	private List<EpisodeModel> mEpisodeModels;
 	private LayoutInflater mLayoutInflater;
 	private Context mContext;
+	private boolean mIsStart;
 
 	public AnimeEpisodeRecyclerViewAdapter(Context context, AnimeModel animeModel) {
 
@@ -59,6 +62,8 @@ public class AnimeEpisodeRecyclerViewAdapter extends RecyclerView.Adapter<AnimeE
 			mEpisodeModels.add(model);
 			calendar.add(Calendar.DAY_OF_YEAR, 7);
 		}
+
+		mIsStart = mAnimeModel.isStart();
 	}
 
 	@Override
@@ -115,6 +120,10 @@ public class AnimeEpisodeRecyclerViewAdapter extends RecyclerView.Adapter<AnimeE
 				mDate.setText(MessageFormat.format(mContext.getString(R.string.watched_time_format), mEpisodeModel.getDate(), date));
 			} else {
 				mDate.setText(mEpisodeModel.getDate());
+			}
+
+			if (!mIsStart) {
+				mStateIv.setVisibility(GONE);
 			}
 		}
 

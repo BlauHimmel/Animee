@@ -150,9 +150,20 @@ public class AnimeModel implements Model{
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		int day = (int) (System.currentTimeMillis() - startTime) / (1000 * 3600 * 24);
+		int day = (int) ((System.currentTimeMillis() - startTime) / (1000 * 3600 * 24));
 		int episode = day / 7 + 1;
 		return episode > total;
+	}
+
+	public boolean isStart() {
+		long startTime = System.currentTimeMillis();
+		try {
+			startTime = new SimpleDateFormat("yyyyMMddHHmm").parse(startDate).getTime();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		long delta = System.currentTimeMillis() - startTime;
+		return delta >= 0;
 	}
 
 	@Override

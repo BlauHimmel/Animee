@@ -118,6 +118,9 @@ public class AnimeListRecyclerViewAdapter extends RecyclerView.Adapter<AnimeList
 			if (mAnimeModel.isFin()) {
 				mEpisodeTv.setText(mContext.getString(R.string.fin));
 				mStateIv.setVisibility(View.GONE);
+			} else if (!mAnimeModel.isStart()) {
+				mEpisodeTv.setText(mContext.getString(R.string.not_start));
+				mStateIv.setVisibility(View.GONE);
 			} else {
 				mEpisodeTv.setText(MessageFormat.format(mContext.getString(R.string.episode_format), mAnimeModel.getEpisode()));
 				mDateTv.setText(mAnimeModel.getUpdateTime());

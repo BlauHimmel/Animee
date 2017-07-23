@@ -28,6 +28,8 @@
 	<string name="progress_format">第{0}话/共{1}话</string>
 	<string name="progress_format2">第{0}话</string>
 	<string name="start_format">{0} 星期{1}</string>
+	
+	<string name="not_start">等待放送</string>
 	<string name="fin">完结</string>
 	
 	<string name="add_success">添加成功</string>
