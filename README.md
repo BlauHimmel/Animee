@@ -11,6 +11,8 @@
 >* 修改番剧的信息(更新时间,图标,版权信息,总集数)请点击分集列表右下角的铅笔按钮
 >* 在主界面或者分集列表可以点击那个长得很像播放键但其实并不能播放的按钮标记番剧是否已经观看了
 
+
+
 <div align="center">  
   <img src="https://github.com/BlauHimmel/Animee/blob/master/picture/1.png" width = "360" height = "640"/>
   <img src="https://github.com/BlauHimmel/Animee/blob/master/picture/2.png" width = "360" height = "640"/>
