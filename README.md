@@ -146,8 +146,34 @@
   <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2017summer/%E9%AA%91%E5%A3%AB%26%E9%AD%94%E6%B3%95.png" width = "300" height = "300"/>
 </div>
 
+---
 
+# 如何制作二维码？
 
+首先二维码存储的的是JSON字符串，格式如下
+
+```
+{
+    "name":"AAAA",
+    "date":"BBBBCCDDEEFF",
+    "total":G,
+    "copyright":"H",
+    "url":"I"
+}
+
+```
+
+|属性|内容|
+|---|---|
+|name|番剧的名字，直接填进去就好了，不过最好别填一些奇怪的符号|
+|date|番剧开播的时间 例如开播时间是**2017年7月23日16:50**那么就填入**201707231650**,注意月日时分是两位,不足的位数要补上0|
+|total|番剧的总集数,不知道的话就填-1|
+|copyright|番剧的版权商,目前可以填*Youku*,*iQiyi*,*PPTV*,*Bilibili*,*Acfun*,*Tencent*,*BaiduYun*|
+|url|番剧配图的URL地址|
+
+**注意引号别弄掉了！！！**
+
+弄好后再随便找个生成二维码的网站把上面的字符串丢进去生成就行了
 
 
 
