@@ -98,7 +98,7 @@ public class ModifyActivity extends AppCompatActivity {
 	}
 
 	@Subscribe(sticky = true)
-	void initialize(AnimeModifyEvent animeModifyEvent) {
+	public void initialize(AnimeModifyEvent animeModifyEvent) {
 		mOriginModel = animeModifyEvent.getAnimeModel();
 		mModifiedModel = new AnimeModel(
 				mOriginModel.getIconUrl(),

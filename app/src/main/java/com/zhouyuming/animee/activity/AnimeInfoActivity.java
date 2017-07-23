@@ -186,7 +186,7 @@ public class AnimeInfoActivity extends AppCompatActivity implements AppBarLayout
 	}
 
 	@OnClick(R.id.activity_anime_info_fab_modify)
-	void onModifyFabClick() {
+	public void onModifyFabClick() {
 		EventBus.getDefault().postSticky(new AnimeModifyEvent(mModel));
 		Intent intent = new Intent(this, ModifyActivity.class);
 		startActivity(intent);
