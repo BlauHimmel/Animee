@@ -72,7 +72,7 @@
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018summer/刃牙.png	" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018summer/刃牙.png" width = "300" height = "300"/>
   <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018summer/千绪的通学路.png" width = "300" height = "300"/>
 </div>
 
