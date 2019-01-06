@@ -29,156 +29,101 @@
 
 ---
 
-# 十月新番
+# 一月新番
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/Anima Yell!.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/BAKUMATSU.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/3D彼女 第二季.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/BanG Dream! 第二季.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/INGRESS.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/JOJO的奇妙冒险 黄金之风.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/B-PROJECT～绝顶＊Emotion～.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/CIRCLET PRINCESS.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/RADIANT.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/RErideD-穿越时空的德里达-.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/Dimension High School.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/Endro~.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/SSSS.GRIDMAN.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/爆钓王.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/Revisions.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/W'Z.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/不受欢迎者之家.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/苍天之拳 REGENESIS 第二季.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/百慕大三角～Colorful Pastrale～.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/笨拙之极的上野.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/大人的防具店.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/刀剑神域 Alicization篇.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/不吉波普不笑.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/盾之勇者成名录.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/道格&基里尔.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/东京喰种 re 第二季.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/多罗罗.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/飞翔吧！战机少女.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/东离剑游记2.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/恶魔偶像!.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/粉彩回忆.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/钢琴之森 第二季.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/哥布林杀手.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/关于我转生变成史莱姆这档事.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/格林笔记.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/荒野的科特布奇飞行队.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/骸骨书店员本田君.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/狐狸之声.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/辉夜大小姐想让我告白～天才们的恋爱头脑战～.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/家有女友.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/欢迎光临千岁酱.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/黄金神威 第二季.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/就算是爸爸也想做.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/狂赌之渊 ××.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/火之丸相扑.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/寄宿学校的朱丽叶.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/临死！！江古田.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/灵能百分百 第二季.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/嫁给非人类.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/尽量加油吧！魔法少女胡桃 第二季.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/玛娜利亚魔法学院.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/迷你刀使.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/来自多彩世界的明天.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/邻家的吸血鬼小妹.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/明治东京恋伽.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/魔法少女特殊战明日香.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/麟&犀×AI韵律 第二季.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/梅露可物语 -没精神的少年与瓶中的少女-.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/兽娘动物园2.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/天使降临到了我身边.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/魔法禁书目录 第三季.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/魔偶马戏团.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/同居人时而在腿上、时而跑到脑袋上.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/五等分的新娘.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/末班车后.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/那时，那个女孩.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/笑容的代价.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/虚拟小姐在看着你.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/能继续奔跑下去真是太好了.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/逆转裁判 第二季.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/烟草.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/忧郁的物怪庵 续.png" width = "300" height = "300"/>
 </div>
 
 <div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/偶像大师 SideM 事出有因Mini!.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/叛逆性百万亚瑟王.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/钱进球场 第二.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/茜色少女.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/强风吹拂.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/青春期笨蛋不做兔女郎学姐的梦.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/闪电十一人 俄里翁的刻印.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/闪乱神乐 SHINOVI MASTER -东京妖魔篇-.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/天空与海洋之间.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/为我而生.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/我家的女仆太烦人了！.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/我让最想被拥抱的男人给威胁了.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/我喜欢的是妹妹但不是妹妹.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/弦音 -风舞高中弓道部-.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/轩辕剑 苍之曜.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/学园BASARA.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/妖精的尾巴 最终季.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/尤利西斯 贞德与炼金骑士.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/宇宙战舰大和号2202 爱的战士们.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/宇宙战舰提拉米斯2.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/月影特工.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/只要贝尔哲布布大小姐喜欢就好.png" width = "300" height = "300"/>
-</div>
-
-<div align="center">  
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/终将成为你.png" width = "300" height = "300"/>
-  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2018winter/佐贺偶像是传奇.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/雨色可可 side G.png" width = "300" height = "300"/>
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/约会大作战 第三季.png" width = "300" height = "300"/>
 </div>
 
 ---
