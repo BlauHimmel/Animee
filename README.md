@@ -126,6 +126,10 @@
   <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/约会大作战 第三季.png" width = "300" height = "300"/>
 </div>
 
+<div align="center">  
+  <img src="https://github.com/BlauHimmel/Animee/blob/master/qrcode/2019jan/约定的梦幻岛.png" width = "300" height = "300"/>
+</div>
+
 ---
 
 # 如何制作二维码？
